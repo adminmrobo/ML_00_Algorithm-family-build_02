@@ -1,0 +1,175 @@
+<style>
+.dos{display:grid;grid-template-columns:230px minmax(0,1fr) 270px;gap:14px;align-items:start}
+.mlist{display:flex;flex-direction:column;gap:6px}
+.mlist button{display:flex;align-items:center;gap:8px;width:100%;text-align:left;background:var(--panel2);border:1px solid var(--rule);border-radius:10px;padding:6px 8px;cursor:pointer;color:var(--text);font:inherit}
+.mlist button:hover{border-color:var(--info)}
+.mlist button[aria-pressed="true"]{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber) inset;background:var(--panel)}
+.mlist button canvas{image-rendering:pixelated;flex:none}
+.mlist button b{display:block;font-size:14px;line-height:1.3}
+.mlist button span{display:block;font-size:12px;color:var(--muted);line-height:1.35}
+.dfile{background:var(--panel2);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;font-size:14px}
+.dfile h4{margin:0 0 6px;font-family:var(--serif);font-size:16px}
+.dfile .badge2{display:inline-block;font-size:11.5px;border:1px solid var(--amber);color:var(--amber);border-radius:999px;padding:0 8px;margin-left:4px;vertical-align:2px}
+.dfile dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px}
+.dfile dt{color:var(--muted);font-size:12.5px;white-space:nowrap;padding-top:2px}
+.dfile dd{margin:0;line-height:1.5}
+.dctl{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-top:10px;font-size:14px;color:var(--muted)}
+.dctl input[type=range]{width:150px}
+.acc td.hi{color:var(--gfp);font-weight:700}
+.acc td.lo{color:var(--eye)}
+@media (max-width:980px){.dos{grid-template-columns:1fr}.mlist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="series" id="series" aria-label="알고리즘 패밀리 시리즈 목록"></div>
+    <div class="kicker">인공지능 알고리즘 패밀리 조직도 · 4-7<span class="fam fam-sup">2부 조직원 명부 · 분류파</span></div>
+    <canvas class="stagecv" id="heroCv" width="1100" height="340" role="img" aria-label="체스판 바닥의 넓은 방. 가운데 파랑·주황 점이 동그라미 모양으로 놓인 평면 위에 경계선이 직선, 원, 계단 모양으로 차례로 바뀌고, 위에는 분류파 조직원 패 여덟 개가 늘어서 있다. 왼쪽에 초파리 연구원, 오른쪽에 Money-Robo"></canvas>
+    <div class="hero-grid">
+      <div>
+        <h1>분류파 여덟 — 경계를 긋는 여덟 가지 방법</h1>
+        <p class="lede" style="margin-top:14px">분류는 점마다 이름표를 붙이는 일이다. 평면에 파랑과 주황 점이 섞여 있으면, 분류 모델은 결국 <b>평면을 두 영역으로 가르는 경계선</b>을 긋는다.</p>
+        <p class="lede">분류파 여덟 명은 모두 이름표를 붙인다. 차이는 경계선을 <b>어떤 모양으로</b>, <b>무엇을 근거로</b> 긋느냐에 있다. 이 편에서는 여덟 명을 같은 데이터 위에 차례로 세워 경계가 어떻게 달라지는지 본다.</p>
+        <div class="chips" aria-label="10분 핵심 경로"><span class="muted">10분 핵심 경로</span><a href="#m1">01 직선 경계</a><span class="arr">→</span><a href="#m4">04 신상 파일</a><span class="arr">→</span><a href="#d7">담판</a></div>
+      </div>
+      <div>
+        <div class="sizebox">
+          <h3>분류파의 재료</h3>
+          <div class="sizegrid">
+            <div class="nn"><b>8</b><span>분류파 조직원</span></div>
+            <div class="nn"><b>3</b><span>데이터 모양 (직선으로 나뉨 · 띠 · 동심원)</span></div>
+            <div class="nn"><b>300</b><span>모양마다 점 수 (훈련 200 · 검증 100)</span></div>
+            <div class="nn"><b>1</b><span>같은 데이터에 바꿔 끼우기</span></div>
+          </div>
+          <p class="foot">랜덤 포레스트와 GBM은 앙상블 연합에도 이름이 올라 있다. 두 가문에 몸담은 조직원이다. 나무를 묶는 원리는 4-5와 4-10에서 자세히 본다.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cast" aria-label="등장인물">
+      <div class="say doc"><img data-who="doc" data-mood="don" alt="" aria-hidden="true"><div class="bub"><span class="who">대부 박사</span>분류파 여덟 명을 소개하죠. 모두 이름표를 붙이지만, 경계선을 긋는 솜씨가 다 다릅니다. 같은 데이터에 한 명씩 세워 보면 차이가 보여요.</div></div>
+      <div class="say fly"><img data-who="fly" data-mood="fedora" alt="" aria-hidden="true"><div class="bub"><span class="who">초파리 연구원</span>나는 로지스틱이면 충분해. 확률로 답하니 믿을 만하거든.</div></div>
+      <div class="say robo"><img data-who="robo" data-mood="sapling" alt="" aria-hidden="true"><div class="bub"><span class="who">Money-Robo</span>나무 스물다섯 그루짜리 숲에 건다. 경계가 어떻게 생겼든 다 받아 낸다고.</div></div>
+    </div>
+    <aside class="prereq" aria-label="먼저 읽으면 좋은 편">
+      <b>먼저 읽으면 좋은 편</b>
+      <span><a href="4-2_supervised.html#m2">4-2 지도 가문 · 02 회귀·분류</a> — 분류가 무엇이고 정확도를 어떻게 재는지</span>
+      <span>같은 세로줄: <a href="4-2_supervised.html">가계도 → 4-2 지도 가문</a> · <a href="4-12_supervised_metrics.html">회합 → 4-12 지도 가문의 장부</a></span>
+    </aside>
+  </div>
+</header>
+
+<!-- ═══════════ 01 직선 경계 ═══════════ -->
+<section class="part" id="m1">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no sup">01</div>
+    <div class="en">Straight boundaries</div>
+    <h2>직선 경계 — 로지스틱 회귀와 SVM</h2>
+    <p class="lin">같은 직선이라도 고르는 기준이 다르다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">이야기</span>
+      <p>점 300개가 비스듬한 직선을 사이에 두고 갈려 있다. 경계 근처에는 잡음이 있어 몇 개는 반대편에 섞여 있다.</p>
+      <p><b>로지스틱 회귀</b>는 점마다 "주황일 확률"을 낸다. 경계에서 멀수록 확률이 0이나 1에 가깝고, 경계 위는 딱 0.5다. 모든 점의 확률이 정답과 가장 잘 맞도록 직선을 고른다.</p>
+      <p style="margin:0"><b>SVM</b>은 두 무리 사이에 <b>가장 넓은 길</b>을 낸다. 길의 가장자리(옅은 선)에 닿는 점들, 곧 서포트 벡터만 경계를 정한다. 길에서 먼 점은 움직여도 경계가 바뀌지 않는다.</p>
+    </div>
+    <div class="card">
+      <span class="tag">같은 데이터, 두 직선 (훈련 점만 표시)</span>
+      <div class="pills" role="group" aria-label="조직원 고르기"><button data-v="log" aria-pressed="true">로지스틱 회귀</button><button data-v="svm" aria-pressed="false">SVM (선형)</button></div>
+      <div class="cwrap" style="margin-top:10px"><canvas class="fig" id="m1Cv" aria-label="비스듬히 갈린 파랑·주황 점 위에 경계선. 로지스틱은 경계에서 멀어질수록 진해지는 확률 색, SVM은 경계 양옆의 여백 가장자리 선"></canvas></div>
+      <div class="caption" id="m1Info" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 02 이웃과 확률 ═══════════ -->
+<section class="part" id="m2">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no sup">02</div>
+    <div class="en">Neighbors and probability</div>
+    <h2>이웃과 확률 — KNN과 나이브 베이즈</h2>
+    <p class="lin">가까운 이웃에게 묻거나, 무리의 생김새를 확률로 요약하거나</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">이야기</span>
+      <p>이번 데이터는 두 개의 띠가 맞물린 모양이다. 직선 하나로는 깔끔하게 가를 수 없다.</p>
+      <p><b>KNN</b>은 배우지 않는다. 새 점이 오면 훈련 점 가운데 가장 가까운 k개를 찾아 다수결로 정한다. k가 작으면 경계가 들쭉날쭉하고(잡음에 민감), k가 크면 매끈해진다(세밀한 모양을 놓친다).</p>
+      <p style="margin:0"><b>나이브 베이즈</b>는 무리마다 "x는 대략 이 근처, y는 대략 이 근처"처럼 특징 하나씩 따로 분포를 요약한 뒤, 베이즈 정리로 어느 무리일 확률이 큰지 계산한다. 특징끼리 서로 상관없다고 <b>순진하게(naive)</b> 가정해서 이런 이름이 붙었다.</p>
+      <div id="tokHost"></div>
+    </div>
+    <div class="card">
+      <span class="tag">띠 모양 데이터</span>
+      <div class="pills" role="group" aria-label="조직원 고르기"><button data-v="knn" aria-pressed="true">KNN</button><button data-v="nb" aria-pressed="false">나이브 베이즈</button></div>
+      <div class="cwrap" style="margin-top:10px"><canvas class="fig" id="m2Cv" aria-label="두 띠가 맞물린 점 위에 KNN 또는 나이브 베이즈의 경계"></canvas></div>
+      <div id="m2K"><label for="m2Sl" style="display:block;font-size:14px;color:var(--muted);margin-top:8px">이웃 수 k: <b id="m2Kv" class="num" style="color:var(--text)">7</b></label>
+      <input type="range" id="m2Sl" min="1" max="41" step="2" value="7"></div>
+      <div class="caption" id="m2Info" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 03 트리 계열 ═══════════ -->
+<section class="part" id="m3">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no sup">03</div>
+    <div class="en">The tree line</div>
+    <h2>트리 계열 — 한 그루, 숲, 그리고 오답 노트</h2>
+    <p class="lin">결정 트리 · 랜덤 포레스트 · GBM · XGBoost·LightGBM·CatBoost</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">이야기</span>
+      <p><b>결정 트리</b>는 "x가 0.3보다 큰가?"처럼 축 하나만 보는 질문을 이어 붙인다. 그래서 경계가 늘 <b>가로·세로 계단</b>이다. 질문을 따라가면 왜 그렇게 판정했는지 사람이 읽을 수 있다.</p>
+      <p><b>랜덤 포레스트</b>는 데이터를 조금씩 다르게 뽑아 트리 25그루를 따로 키우고 다수결로 정한다. 한 그루의 들쭉날쭉함이 평균으로 누그러진다.</p>
+      <p><b>GBM</b>은 트리를 차례로 키운다. 앞 트리가 틀린 만큼을 다음 트리가 배워 더한다. 오답 노트를 이어 쓰는 셈이다.</p>
+      <p style="margin:0"><b>XGBoost · LightGBM · CatBoost</b>는 GBM과 원리가 같은 <b>빠르고 튼튼한 구현</b>이다. 값을 구간으로 묶어 빨리 자르고, 규제와 결측값·범주형 특징 처리를 더했다. 이 페이지는 같은 원리(값을 32칸으로 묶은 GBM)로 흉내 낸다.</p>
+    </div>
+    <div class="card">
+      <span class="tag">동심원 데이터</span>
+      <div class="pills" role="group" aria-label="조직원 고르기"><button data-v="tree" aria-pressed="true">결정 트리</button><button data-v="rf" aria-pressed="false">랜덤 포레스트</button><button data-v="gbm" aria-pressed="false">GBM</button><button data-v="xgb" aria-pressed="false">XGBoost형</button></div>
+      <div class="cwrap" style="margin-top:10px"><canvas class="fig" id="m3Cv" aria-label="동그라미 모양으로 놓인 점 위에 트리 계열 조직원의 계단 모양 경계"></canvas></div>
+      <div id="m3D"><label for="m3Sl" style="display:block;font-size:14px;color:var(--muted);margin-top:8px">트리 깊이: <b id="m3Dv" class="num" style="color:var(--text)">4</b></label>
+      <input type="range" id="m3Sl" min="1" max="10" step="1" value="4"></div>
+      <div class="caption" id="m3Info" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 04 신상 파일 ═══════════ -->
+<section class="part" id="m4">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no sup">04</div>
+    <div class="en">Member files</div>
+    <h2>신상 파일 — 데이터 모양 × 조직원</h2>
+    <p class="lin">같은 데이터에 여덟 명을 바꿔 끼운다. 차이는 데이터가 아니라 알고리즘에서 온다</p>
+  </div>
+  <div class="card">
+    <div class="pills" role="group" aria-label="데이터 모양 고르기" id="shapePills"><button data-v="lin" aria-pressed="false">직선으로 나뉨</button><button data-v="band" aria-pressed="false">띠 모양</button><button data-v="circ" aria-pressed="true">동심원</button></div>
+    <div class="dos" style="margin-top:12px">
+      <div class="mlist" id="mlist" role="group" aria-label="조직원 고르기"></div>
+      <div>
+        <div class="cwrap"><canvas class="fig" id="dosCv" aria-label="고른 데이터 모양 위에 고른 조직원이 그은 경계. 배경색이 파랑·주황 영역을 나타낸다"></canvas></div>
+        <div class="dctl" id="dosCtl"></div>
+        <div id="dosKpi" style="margin-top:10px"></div>
+      </div>
+      <div class="dfile" id="dosFile" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <span class="tag">검증 정확도 표 · 모양 3 × 조직원 8 (이 페이지가 직접 계산)</span>
+    <div class="tw" id="accTbl"><p class="muted">계산 중…</p></div>
+    <p class="caption" style="margin-top:8px">KNN은 k = 7, SVM은 RBF 커널 근사, 결정 트리는 깊이 4. 가장 높은 값은 초록, 70% 아래는 빨강.</p>
+  </div>
+
+  <div class="duel" id="d7"></div>
+  <h3 style="margin:26px 0 10px">✓ 확인 문제</h3>
+  <div class="quiz" data-quiz="q7"></div>
+</div>
+</section>

@@ -1,0 +1,169 @@
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="series" id="series" aria-label="알고리즘 패밀리 시리즈 목록"></div>
+    <div class="kicker">인공지능 알고리즘 패밀리 조직도 · 4-9<span class="fam fam-rl">2부 조직원 명부 · 강화 가문</span></div>
+    <canvas class="stagecv" id="heroCv" width="1100" height="340" role="img" aria-label="격자 미로가 내려다보이는 방 가운데에 세 칸짜리 계보가 놓여 있다. 왼쪽은 숫자가 적힌 표(Q-Learning), 가운데는 점과 선으로 이어진 신경망(DQN), 오른쪽은 행동 확률 막대(PPO)이고, 그 아래를 청소봇 쓱싹이 1세·2세·3세가 지나간다. 왼쪽에 초파리 연구원, 오른쪽에 Money-Robo가 서 있다"></canvas>
+    <div class="hero-grid">
+      <div>
+        <h1>강화 삼대 — 표에서 신경망으로, 값에서 정책으로</h1>
+        <p class="lede" style="margin-top:14px">강화 가문의 조직원 셋은 한 집안의 삼대다. 할아버지 <b>Q-Learning</b>은 칸마다 "이 행동이 얼마나 좋은가"를 표에 적었다. 아버지 <b>DQN</b>은 표가 감당할 수 없을 만큼 세상이 커지자, 표 대신 신경망이 그 값을 계산하게 했다. 막내 <b>PPO</b>는 값을 거치지 않고 행동 방식(정책) 자체를 조금씩, 안전하게 고친다.</p>
+        <p class="lede">이 편에서는 5×5 미로에서 Q 표가 채워지는 모습을 직접 보고, 격자를 키울 때 표가 왜 무너지는지, 다음 세대가 그 문제를 어떻게 풀었는지 차례로 본다.</p>
+        <div class="chips" aria-label="10분 핵심 경로"><span class="muted">10분 핵심 경로</span><a href="#m1">01 Q-Learning</a><span class="arr">→</span><a href="#m2">02 격자 미로</a><span class="arr">→</span><a href="#d9">담판</a></div>
+      </div>
+      <div>
+        <div class="sizebox">
+          <h3>강화 삼대의 재료</h3>
+          <div class="sizegrid">
+            <div class="nn"><b>3</b><span>강화 가문 조직원 (Q-Learning · DQN · PPO)</span></div>
+            <div class="nn"><b>25</b><span>5×5 미로의 상태(칸) 수</span></div>
+            <div class="nn"><b>100</b><span>5×5 Q 표의 칸 수 (상태 25 × 행동 4)</span></div>
+            <div class="nn"><b>2<sup>7056</sup></b><span>84×84 흑백 화면이 될 수 있는 경우의 수</span></div>
+          </div>
+          <p class="foot">강화 가문의 공통점(에이전트·환경·보상, 탐험과 활용)은 1부 4-4에서, 보상을 어떻게 재고 설계하는지는 3부 4-14에서 다룬다.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cast" aria-label="등장인물">
+      <div class="say doc"><img data-who="doc" data-mood="don" alt="" aria-hidden="true"><div class="bub"><span class="who">대부 박사</span>강화 가문의 삼대를 소개하죠. 표에 적던 할아버지, 신경망을 들인 아버지, 정책을 직접 다듬는 막내. 한 계보입니다.</div></div>
+      <div class="say robo"><img data-who="robo" data-mood="tux" alt="" aria-hidden="true"><div class="bub"><span class="who">Money-Robo</span>표는 구식이야. 요즘은 무조건 신경망이지. 최신 모델에 투자하는 게 남는 장사야.</div></div>
+      <div class="say fly"><img data-who="fly" data-mood="point" alt="" aria-hidden="true"><div class="bub"><span class="who">초파리 연구원</span>칸이 스물다섯 개뿐인 미로에 신경망? 그건 과한 투자 아니야?</div></div>
+    </div>
+    <aside class="prereq" aria-label="먼저 읽으면 좋은 편">
+      <b>먼저 읽으면 좋은 편</b>
+      <span><a href="4-4_reinforcement.html#m1">4-4 강화 가문 · 01 고리</a> — 상태·행동·보상, 탐험과 활용</span>
+      <span>같은 세로줄: 가계도 → <a href="4-4_reinforcement.html">4-4 강화 가문</a> · <a href="4-14_rl_metrics.html">회합 → 4-14 강화 가문의 장부</a></span>
+    </aside>
+  </div>
+</header>
+
+<!-- ═══════════ 01 Q-Learning ═══════════ -->
+<section class="part" id="m1">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no rl">01</div>
+    <div class="en">Q-Learning</div>
+    <h2>Q-Learning — 칸마다 행동의 값을 표에 적는다</h2>
+    <p class="lin">해 보고, 받은 보상과 다음 칸의 값으로 표를 조금 고친다</p>
+  </div>
+  <div class="card dossier">
+    <span class="tag">신상 파일 세 장 · 강화 삼대</span>
+    <div class="cards8" id="files" style="grid-template-columns:repeat(3,minmax(0,1fr))"></div>
+    <div class="cwrap" style="margin-top:12px"><canvas class="fig" id="tlCv" aria-label="Q-Learning(1989년 학위논문, 1992년 논문)에서 DQN(2013년 공개, 2015년 논문)을 거쳐 PPO(2017년 공개)로 이어지는 계보 연대표"></canvas></div>
+  </div>
+  <div class="two" style="margin-top:16px">
+    <div class="card">
+      <span class="tag">이야기</span>
+      <p>Q(s, a)는 "상태 s에서 행동 a를 하면, 앞으로 받을 보상의 합이 대략 얼마인가"를 적은 값이다. 미로가 5×5라면 칸 25개 × 행동 4개(위·오른쪽·아래·왼쪽) = 100칸짜리 표 하나면 된다. 처음에는 모두 0이다.</p>
+      <p>청소봇이 한 걸음 움직일 때마다 표의 한 칸을 고친다. 고치는 방향은 "방금 받은 보상 + 도착한 칸에서 가장 좋은 행동의 값"이다. 이 목표값과 지금 적힌 값의 차이만큼, 학습률 α의 비율로 다가간다.</p>
+      <div class="eq">새 Q(s, a) = Q(s, a) + α × ( r + γ × max Q(s′, ·) − Q(s, a) )</div>
+      <p style="margin:10px 0 0">γ(감마)는 미래의 보상을 얼마나 쳐줄지 정한다. 0.9면 한 걸음 뒤의 보상은 0.9배, 두 걸음 뒤는 0.81배로 본다. 그래서 충전기 바로 옆 칸부터 값이 차고, 그 값이 한 칸씩 뒤로 퍼져 나간다.</p>
+    </div>
+    <div class="card">
+      <span class="tag">한 칸 고쳐 보기</span>
+      <p style="margin-top:0">충전기에서 두 칸 떨어진 칸에서 오른쪽으로 한 걸음 갔다. 받은 보상은 −0.1, 도착한 칸에서 가장 좋은 값은 <b>8.0</b>이다. 지금 표에 적힌 값은 <b>2.0</b>이다.</p>
+      <label for="ex1a" style="display:block;font-size:14px;color:var(--muted)">학습률 α: <b id="ex1av" class="num" style="color:var(--text)">0.5</b></label>
+      <input type="range" id="ex1a" min="0.1" max="1" step="0.1" value="0.5">
+      <label for="ex1g" style="display:block;font-size:14px;color:var(--muted);margin-top:6px">할인율 γ: <b id="ex1gv" class="num" style="color:var(--text)">0.9</b></label>
+      <input type="range" id="ex1g" min="0" max="0.99" step="0.01" value="0.9">
+      <div class="eq" id="ex1out" style="margin-top:10px" aria-live="polite"></div>
+      <p class="muted" style="font-size:14px;margin:8px 0 0">α가 1이면 목표값으로 한 번에 바꾸고, 작으면 조금씩 다가간다. 보상이 들쭉날쭉한 세상에서는 작은 α가 덜 흔들린다.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 02 격자 미로 ═══════════ -->
+<section class="part" id="m2">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no rl">02</div>
+    <div class="en">Grid world</div>
+    <h2>격자 미로 — 충전기에서 값이 퍼져 나간다</h2>
+    <p class="lin">5×5 미로, 칸마다 화살표 네 개의 색이 Q 값이다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">움직이는 그림 · 쓱싹이의 Q 표</span>
+      <div class="cwrap"><canvas class="fig" id="gridCv" aria-label="5×5 미로. 왼쪽 위에서 출발한 청소봇이 오른쪽 아래 충전기를 찾아간다. 칸마다 네 방향 삼각형의 색이 Q 값의 크기를 나타내고, 가장 큰 방향에 흰 화살표가 그려진다. 판을 거듭할수록 충전기 쪽부터 값이 차오른다"></canvas></div>
+      <div class="ctrls"><button class="btn go" id="gPlay">▶ 재생</button><button class="btn" id="gStep">한 판 넘기기</button><button class="btn" id="gReset">처음으로</button></div>
+      <div class="stat" id="gStat" style="margin-top:10px"></div>
+    </div>
+    <div class="card">
+      <span class="tag">손잡이 셋</span>
+      <label for="slA" style="display:block;font-size:14px;color:var(--muted)">학습률 α: <b id="slAv" class="num" style="color:var(--text)">0.5</b></label>
+      <input type="range" id="slA" min="0.1" max="1" step="0.1" value="0.5">
+      <label for="slG" style="display:block;font-size:14px;color:var(--muted);margin-top:6px">할인율 γ: <b id="slGv" class="num" style="color:var(--text)">0.9</b></label>
+      <input type="range" id="slG" min="0.5" max="0.99" step="0.01" value="0.9">
+      <label for="slE" style="display:block;font-size:14px;color:var(--muted);margin-top:6px">탐험 비율 ε: <b id="slEv" class="num" style="color:var(--text)">0.20</b></label>
+      <input type="range" id="slE" min="0" max="0.5" step="0.05" value="0.2">
+      <div class="cwrap" style="margin-top:10px"><canvas class="fig" id="stepCv" aria-label="판마다 충전기에 닿기까지 걸린 걸음 수 곡선. 처음에는 수십 걸음이다가 최단 거리 근처로 내려온다"></canvas></div>
+      <div class="caption" id="gInfo" aria-live="polite"></div>
+      <div id="sweepHost"></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <span class="tag">격자를 키우면?</span>
+    <div class="pills" role="group" aria-label="세계 크기 고르기"><button data-v="0" aria-pressed="true">5×5 미로</button><button data-v="1" aria-pressed="false">20×20 격자</button><button data-v="2" aria-pressed="false">84×84 흑백 화면</button></div>
+    <div class="cwrap" style="margin-top:10px"><canvas class="fig" id="sizeCv" aria-label="세계의 크기에 따라 필요한 Q 표의 칸 수를 비교한 그림"></canvas></div>
+    <div class="caption" id="sizeInfo" aria-live="polite"></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 03 DQN ═══════════ -->
+<section class="part" id="m3">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no rl">03</div>
+    <div class="en">Deep Q-Network</div>
+    <h2>DQN — 표 대신 신경망이 Q 값을 계산한다</h2>
+    <p class="lin">비슷한 화면이면 비슷한 값을 낸다. 그래서 처음 보는 상태에도 답한다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">이야기</span>
+      <p>게임 화면 한 장이 곧 상태라면, 같은 화면이 두 번 나오는 일은 거의 없다. 표에 칸을 만들어 둘 수도, 칸을 다 채울 수도 없다. DQN은 표를 버리고 <b>신경망</b>에게 화면을 보여 준 뒤 행동마다 Q 값을 계산하게 했다. 비슷한 화면에는 비슷한 값을 내니, 한 번도 본 적 없는 화면에도 답할 수 있다.</p>
+      <p>하지만 신경망을 Q-Learning 식대로 바로 학습시키면 쉽게 흔들린다. 방금 겪은 장면들은 서로 너무 닮았고, 목표값을 계산하는 신경망이 학습하는 신경망 자신이라 목표가 계속 움직이기 때문이다. DQN은 두 가지 장치로 이를 잡았다.</p>
+      <p style="margin:0"><b>① 경험 재생.</b> 겪은 장면(상태, 행동, 보상, 다음 상태)을 창고에 쌓아 두고, 무작위로 뽑아 복습한다. <b>② 목표 네트워크.</b> 목표값은 일정 걸음마다 복사해 둔 "고정된 사본"으로 계산한다.</p>
+    </div>
+    <div class="card">
+      <span class="tag">개념 도식 · DQN의 한 걸음</span>
+      <div class="cwrap"><canvas class="fig" id="dqnCv" aria-label="화면이 신경망에 들어가 행동 네 개의 Q 값이 나오는 흐름. 겪은 장면은 경험 창고에 쌓이고, 무작위로 뽑힌 장면으로 학습한다. 목표값은 일정 걸음마다 복사되는 목표 네트워크가 계산한다"></canvas></div>
+      <p class="muted" style="font-size:14px;margin:8px 0 0">이 페이지는 심층 신경망을 실제로 학습시키지 않는다. 그림은 구조를 보여 주는 개념 도식이다. 담판에서는 DQN의 핵심 생각(표 대신 계산식이 값을 내서, 비슷한 상태끼리 배운 것을 나눠 쓴다)만 담은 가장 작은 근사기를 쓴다.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 04 PPO ═══════════ -->
+<section class="part" id="m4">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no rl">04</div>
+    <div class="en">Proximal Policy Optimization</div>
+    <h2>PPO — 값 대신 정책을, 조금씩 안전하게</h2>
+    <p class="lin">한 번에 너무 많이 바꾸지 않도록 변화량을 자른다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">이야기</span>
+      <p>Q-Learning과 DQN은 "행동의 값"을 배운 뒤 값이 가장 큰 행동을 고른다. PPO는 방향이 다르다. 상태마다 "어떤 행동을 몇 % 확률로 할지"라는 <b>정책</b>을 신경망이 직접 내고, 보상이 평균보다 좋았던 행동(이득 A &gt; 0)의 확률은 올리고, 나빴던 행동(A &lt; 0)의 확률은 내린다.</p>
+      <p>문제는 욕심이다. 한 번 좋았다고 확률을 크게 올리면 정책이 망가질 수 있다. PPO는 새 정책과 옛 정책의 확률 비율 ρ가 <b>1 − ε ~ 1 + ε</b> 범위를 벗어나면 더 올려도 점수가 늘지 않게 잘라 버린다(clip). 그래서 학습이 안정적이고, 연속적인 행동(로봇 관절 각도 등)에도 쓴다.</p>
+      <div class="eq">목표 = 평균[ min( ρ × A, clip(ρ, 1−ε, 1+ε) × A ) ]</div>
+      <p class="muted" style="font-size:14px;margin:10px 0 0">대형 언어 모델을 사람의 선호에 맞추는 미세조정(RLHF)에도 PPO가 쓰여 왔다. 다만 최근에는 DPO처럼 강화학습 단계를 줄이거나 바꾼 방법도 많이 쓴다.</p>
+    </div>
+    <div class="card">
+      <span class="tag">자르기(clip)가 하는 일</span>
+      <div class="cwrap"><canvas class="fig" id="ppoCv" aria-label="가로축은 확률 비율, 세로축은 목표 점수. 이득이 양수인 선은 1+ε를 넘으면 평평해지고, 이득이 음수인 선은 1−ε보다 작아지면 평평해진다"></canvas></div>
+      <label for="slP" style="display:block;font-size:14px;color:var(--muted);margin-top:8px">자르는 폭 ε: <b id="slPv" class="num" style="color:var(--text)">0.2</b></label>
+      <input type="range" id="slP" min="0.05" max="0.5" step="0.05" value="0.2">
+      <div class="legend"><span><i style="background:var(--gfp)"></i>좋았던 행동 (A = +1)</span><span><i style="background:var(--eye)"></i>나빴던 행동 (A = −1)</span></div>
+      <div class="caption" id="ppoInfo" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="duel" id="d9"></div>
+  <h3 style="margin:26px 0 10px">✓ 확인 문제</h3>
+  <div class="quiz" data-quiz="q9"></div>
+</div>
+</section>

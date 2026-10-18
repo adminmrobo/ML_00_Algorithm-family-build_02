@@ -1,0 +1,157 @@
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="series" id="series" aria-label="알고리즘 패밀리 시리즈 목록"></div>
+    <div class="kicker">인공지능 알고리즘 패밀리 조직도 · 4-10<span class="fam fam-ens">2부 조직원 명부 · 앙상블 연합</span></div>
+    <canvas class="stagecv" id="heroCv" width="1100" height="340" role="img" aria-label="나무 화분이 가득한 온실 가운데, 왼쪽에는 작은 나무 다섯 그루가 나란히 서서 동시에 표를 던지고, 오른쪽에는 나무 다섯 그루가 한 줄로 이어져 앞 나무의 오답을 다음 나무에 넘긴다. 왼쪽에 초파리 연구원, 오른쪽에 Money-Robo가 서 있다"></canvas>
+    <div class="hero-grid">
+      <div>
+        <h1>앙상블 계보 — 다양한 의견의 평균, 오답 노트의 연쇄</h1>
+        <p class="lede" style="margin-top:14px">1부 4-5에서 앙상블 연합의 두 방법을 만났다. 여럿을 <b>동시에</b> 키워 평균하는 배깅, 앞 모델이 틀린 곳을 다음 모델이 <b>차례로</b> 고치는 부스팅. 이 편은 그 두 집안에서 나온 조직원 여섯의 신상 파일을 연다.</p>
+        <p class="lede">배깅 쪽은 랜덤 포레스트와 Extra Trees, 부스팅 쪽은 GBM과 그 빠르고 튼튼한 후손 XGBoost·LightGBM·CatBoost다. 표 데이터 대회에서 가장 자주 이름이 불리는 식구들이다.</p>
+        <div class="chips" aria-label="10분 핵심 경로"><span class="muted">10분 핵심 경로</span><a href="#m1">01 계보도</a><span class="arr">→</span><a href="#m3">03 부스팅 재생</a><span class="arr">→</span><a href="#d10">담판</a></div>
+      </div>
+      <div>
+        <div class="sizebox">
+          <h3>앙상블 계보의 조직원</h3>
+          <div class="sizegrid">
+            <div class="nn"><b>2</b><span>배깅파 (랜덤 포레스트 · Extra Trees)</span></div>
+            <div class="nn"><b>4</b><span>부스팅파 (GBM · XGBoost · LightGBM · CatBoost)</span></div>
+            <div class="nn"><b>분산 ↓</b><span>배깅이 줄이는 것: 흔들림</span></div>
+            <div class="nn"><b>편향 ↓</b><span>부스팅이 줄이는 것: 치우침</span></div>
+          </div>
+          <p class="foot">랜덤 포레스트와 GBM은 4-6 회귀파·4-7 분류파 명부에도 실려 있다. 앙상블로 만든 지도학습 모델이라 두 가문에 몸담은 조직원이다.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cast" aria-label="등장인물">
+      <div class="say doc"><img data-who="doc" data-mood="don" alt="" aria-hidden="true"><div class="bub"><span class="who">대부 박사</span>2부의 마지막 명부입니다. 배깅은 다양한 의견의 평균으로 흔들림을, 부스팅은 오답 노트의 연쇄로 치우침을 줄이죠.</div></div>
+      <div class="say robo"><img data-who="robo" data-mood="tux" alt="" aria-hidden="true"><div class="bub"><span class="who">Money-Robo</span>표 데이터면 부스팅이지. 대회 상위권 명단을 봐. 다 그 집안이야.</div></div>
+      <div class="say fly"><img data-who="fly" data-mood="fedora" alt="" aria-hidden="true"><div class="bub"><span class="who">초파리 연구원</span>오답을 끝까지 고치다 보면 잡음까지 고치는 거 아냐? 포레스트는 그냥 둬도 잘 버텨.</div></div>
+    </div>
+    <aside class="prereq" aria-label="먼저 읽으면 좋은 편">
+      <b>먼저 읽으면 좋은 편</b>
+      <span><a href="4-5_ensemble.html#m1">4-5 앙상블 연합 · 01 배깅</a> — 배깅과 부스팅이 무엇을 줄이는지</span>
+      <span>같은 세로줄: <a href="4-5_ensemble.html">가계도 → 4-5 앙상블 연합</a> · <a href="4-15_final_and_choice.html">회합 → 4-15 마지막 담판</a></span>
+    </aside>
+  </div>
+</header>
+
+<!-- ═══════════ 01 계보도 ═══════════ -->
+<section class="part" id="m1">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no ens">01</div>
+    <div class="en">Lineage</div>
+    <h2>앙상블 계보도 — 두 집안, 여섯 조직원</h2>
+    <p class="lin">카드를 누르면 계보도에서 그 조직원의 자리와 신상 파일이 열린다</p>
+  </div>
+  <div class="card">
+    <span class="tag">계보도</span>
+    <div class="cwrap" style="overflow-x:auto"><canvas class="fig wide" id="linCv" aria-label="앙상블에서 배깅과 부스팅 두 갈래가 나온다. 배깅 아래 랜덤 포레스트, 그 아래 Extra Trees. 부스팅 아래 GBM, 그 아래 XGBoost, LightGBM, CatBoost 세 갈래. 랜덤 포레스트와 GBM에는 4-6·4-7에서도 만남이라는 표시가 붙어 있다"></canvas></div>
+  </div>
+  <div class="two" style="margin-top:14px">
+    <div>
+      <div class="cards8" id="members" role="group" aria-label="조직원 고르기" style="grid-template-columns:repeat(2,minmax(0,1fr))"></div>
+    </div>
+    <div class="card" id="dossier" aria-live="polite"></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 02 배깅 vs 단일 트리 ═══════════ -->
+<section class="part" id="m2">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no ens">02</div>
+    <div class="en">Bagging vs one tree</div>
+    <h2>배깅 vs 단일 트리 — 데이터를 다시 뽑으면 누가 덜 흔들리나</h2>
+    <p class="lin">한 그루는 뽑을 때마다 경계가 크게 바뀌고, 스물다섯 그루의 평균은 덜 바뀐다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">이야기</span>
+      <p>점 240개가 띠 모양으로 갈린다. 띠 안은 주황, 밖은 파랑이고, 정답 10%는 일부러 뒤집었다. 같은 240개에서 <b>복원 추출</b>로 240개를 다시 뽑는다(같은 점이 두 번 뽑히기도, 아예 빠지기도 한다).</p>
+      <p>왼쪽은 그 표본으로 끝까지 키운 결정 트리 한 그루, 오른쪽은 같은 표본에서 다시 뽑아 키운 트리 25그루의 다수결(랜덤 포레스트)이다. "다시 뽑기"를 누를 때마다 바로 전 그림과 비교해 <b>예측이 바뀐 칸의 비율</b>을 잰다.</p>
+      <div id="treeHost"></div>
+      <p style="margin:0">한 그루는 우연히 뽑힌 점과 잡음에 맞춰 경계를 크게 바꾼다. 스물다섯 그루는 서로 다른 실수를 하니 평균을 내면 그 실수들이 상쇄된다. 이것이 배깅이 줄이는 <b>분산</b>이다.</p>
+    </div>
+    <div class="card">
+      <span class="tag">움직이는 그림 · 같은 데이터, 다시 뽑기</span>
+      <div class="two" style="gap:10px">
+        <figure style="margin:0"><canvas class="fig" id="oneCv" aria-label="결정 트리 한 그루의 경계"></canvas><figcaption class="muted" style="font-size:13px">트리 1그루 (깊이 끝까지)</figcaption></figure>
+        <figure style="margin:0"><canvas class="fig" id="rfCv" aria-label="랜덤 포레스트 25그루의 경계"></canvas><figcaption class="muted" style="font-size:13px">랜덤 포레스트 25그루</figcaption></figure>
+      </div>
+      <div class="ctrls" style="margin-top:10px"><button class="btn go" id="bagDraw">↻ 다시 뽑기</button><button class="btn" id="bagAuto">▶ 자동으로 다섯 번</button></div>
+      <div class="stat" id="bagStat" style="margin-top:10px"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 03 부스팅 단계 재생 ═══════════ -->
+<section class="part" id="m3">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no ens">03</div>
+    <div class="en">Boosting replay</div>
+    <h2>부스팅 단계 재생 — 오답 노트를 다음 트리에 넘긴다</h2>
+    <p class="lin">트리 한 그루의 오차(잔차)를 다음 트리가 배우고, 그 몫을 조금씩 더해 간다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">이야기</span>
+      <p>아파트 60채의 면적과 매매가다(4-6 회귀파와 같은 종류의 휜 데이터). 시작은 모든 집을 평균값 하나로 예측한다. 당연히 작은 집은 비싸게, 큰 집은 싸게 틀린다.</p>
+      <p>1번 트리는 매매가가 아니라 <b>그 틀린 만큼(잔차)</b>을 배운다. 깊이 2짜리 작은 트리라 계단 네 칸뿐이다. 배운 값의 절반(학습률 0.5)만 예측에 더한다. 2번 트리는 남은 잔차를 배우고, 또 절반을 더한다. 열 번 되풀이한다.</p>
+      <p style="margin:0">아래 막대는 지금 단계에서 남은 잔차다. 단계가 지날수록 막대가 짧아진다. 이것이 부스팅이 줄이는 <b>편향</b>, 매번 같은 쪽으로 틀리는 치우침이다.</p>
+    </div>
+    <div class="card runner">
+      <span class="tag">움직이는 그림 · 단계별 누적 예측</span>
+      <div class="cwrap"><canvas class="fig" id="bstCv" aria-label="면적과 매매가 점 60개 위에 지금까지 더한 트리들의 누적 예측 계단선, 이번 단계 트리가 더한 몫, 점마다 남은 잔차 막대가 그려진다"></canvas></div>
+      <label for="bstSl" style="display:block;font-size:14px;color:var(--muted);margin-top:8px">더한 트리 수: <b id="bstVal" class="num" style="color:var(--text)">0</b> / 10</label>
+      <input type="range" id="bstSl" min="0" max="10" step="1" value="0">
+      <div class="ctrls" style="margin-top:6px"><button class="btn go" id="bstPlay">▶ 재생</button><button class="btn" id="bstReset">처음으로</button></div>
+      <div id="bstChain" style="display:flex;gap:4px;align-items:flex-end;flex-wrap:wrap;margin-top:10px" aria-hidden="true"></div>
+      <div class="stat" id="bstStat" style="margin-top:10px"></div>
+      <div class="legend"><span><i style="background:var(--info)"></i>집 한 채</span><span><i style="background:var(--stain)"></i>누적 예측</span><span><i style="background:var(--amber)"></i>이번 트리가 더한 몫</span><span><i style="background:var(--orange)"></i>남은 잔차</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 04 XGBoost·LightGBM·CatBoost ═══════════ -->
+<section class="part" id="m4">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no ens">04</div>
+    <div class="en">Modern boosting</div>
+    <h2>XGBoost · LightGBM · CatBoost — GBM의 세 후손</h2>
+    <p class="lin">원리는 같은 GBM이다. 다른 것은 빠르게, 튼튼하게 만드는 장치다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">세 후손 비교 (개념)</span>
+      <div class="tw"><table class="tb">
+        <thead><tr><th></th><th>XGBoost</th><th>LightGBM</th><th>CatBoost</th></tr></thead>
+        <tbody>
+          <tr><td style="white-space:nowrap;font-weight:700">대표<br>장치</td><td>규제항을 넣은 목적 함수, 2차 미분까지 쓰는 근사</td><td>히스토그램으로 자르는 지점 찾기, 잎 단위 성장</td><td>순서 있는 부스팅(ordered boosting)</td></tr>
+          <tr><td style="white-space:nowrap;font-weight:700">빠른<br>까닭</td><td>병렬 계산, 근사 분할 찾기, 희소 데이터 처리</td><td>GOSS(작은 기울기 표본 줄이기), EFB(겹치지 않는 특징 묶기)</td><td>대칭(oblivious) 트리로 예측이 빠름</td></tr>
+          <tr><td style="white-space:nowrap;font-weight:700">트리<br>키우기</td><td>기본은 층 단위</td><td>잎 단위 (오차가 가장 큰 잎부터)</td><td>대칭 트리 (한 층은 같은 질문)</td></tr>
+          <tr><td style="white-space:nowrap;font-weight:700">범주형<br>특징</td><td>보통 미리 숫자로 바꿔 넣음 (최근 판은 직접 지원도 함)</td><td>직접 지원</td><td>순서 있는 목표 통계로 직접 처리 — 특기</td></tr>
+          <tr><td style="white-space:nowrap;font-weight:700">먼저<br>떠올릴<br>때</td><td>검증된 기본값, 넓은 생태계</td><td>데이터가 크고 빨라야 할 때</td><td>범주형 열이 많은 표</td></tr>
+        </tbody></table></div>
+      <p class="caption">이 페이지는 세 구현을 따로 돌리지 않는다. 원리는 03장의 GBM과 같고, 차이는 속도와 튼튼함을 위한 장치다. 실제 비교는 A장 Colab 코드에서 scikit-learn의 히스토그램 GBM으로 맛본다.</p>
+    </div>
+    <div class="card">
+      <span class="tag">트리를 키우는 순서 · 층 단위 vs 잎 단위</span>
+      <div class="cwrap"><canvas class="fig" id="growCv" aria-label="왼쪽은 층 단위로 한 층씩 모든 잎을 나누는 트리, 오른쪽은 오차가 가장 큰 잎 하나만 계속 나눠 한쪽으로 깊어지는 잎 단위 트리. 같은 잎 수에서 모양이 다르다"></canvas></div>
+      <label for="growSl" style="display:block;font-size:14px;color:var(--muted);margin-top:8px">나눈 횟수: <b id="growVal" class="num" style="color:var(--text)">3</b></label>
+      <input type="range" id="growSl" min="1" max="7" step="1" value="3">
+      <p class="caption" style="margin-top:8px">층 단위는 균형 잡힌 트리를 만들어 덜 외운다. 잎 단위는 같은 잎 수로 오차를 더 빨리 줄이지만 한쪽으로 깊어져 과적합하기 쉽다. 그래서 LightGBM은 잎 수나 깊이 제한을 함께 쓴다.</p>
+    </div>
+  </div>
+
+  <div class="duel" id="d10"></div>
+  <h3 style="margin:26px 0 10px">✓ 확인 문제</h3>
+  <div class="quiz" data-quiz="q10"></div>
+</div>
+</section>

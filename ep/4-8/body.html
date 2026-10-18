@@ -1,0 +1,151 @@
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="series" id="series" aria-label="알고리즘 패밀리 시리즈 목록"></div>
+    <div class="kicker">인공지능 알고리즘 패밀리 조직도 · 4-8<span class="fam fam-uns">2부 조직원 명부 · 비지도 가문</span></div>
+    <canvas class="stagecv" id="heroCv" width="1100" height="340" role="img" aria-label="초승달 모양 등불이 놓인 밤 정원 가운데에 세 가지 점 무리가 떠 있다. 왼쪽은 둥근 무리, 가운데는 초승달 두 개, 오른쪽은 돌돌 말린 소용돌이 롤이 천천히 펼쳐진다. 왼쪽에 초파리 연구원, 오른쪽에 Money-Robo가 서 있다"></canvas>
+    <div class="hero-grid">
+      <div>
+        <h1>비지도 아홉 — 묶는 다섯, 줄이는 넷</h1>
+        <p class="lede" style="margin-top:14px">정답 없이 데이터만 보고 배우는 비지도 가문에는 조직원이 아홉 있다. 비슷한 것끼리 <b>묶는</b> 군집파 다섯, 축을 줄여 한눈에 <b>펼치는</b> 차원축소파 넷이다.</p>
+        <p class="lede">같은 데이터에 다섯 군집 알고리즘을 차례로 바꿔 끼워 보면, 결과의 차이가 데이터가 아니라 알고리즘의 <b>가정</b>에서 온다는 것이 보인다. "무리는 둥글다", "무리는 빽빽하다", "무리는 종 모양 분포다" 같은 가정이다.</p>
+        <div class="chips" aria-label="10분 핵심 경로"><span class="muted">10분 핵심 경로</span><a href="#m2">02 군집 실험</a><span class="arr">→</span><a href="#d8">담판</a><span class="arr">→</span><a href="#m4">04 롤 펼치기</a></div>
+      </div>
+      <div>
+        <div class="sizebox">
+          <h3>비지도 가문의 명부</h3>
+          <div class="sizegrid">
+            <div class="nn"><b>5</b><span>군집파 · K-Means, K-Medoids, DBSCAN, 계층적 군집, GMM</span></div>
+            <div class="nn"><b>4</b><span>차원축소파 · PCA, t-SNE, UMAP, 오토인코더</span></div>
+            <div class="nn"><b>3</b><span>실험 데이터 모양 · 둥근 무리, 초승달, 크기가 다른 무리</span></div>
+            <div class="nn"><b>0</b><span>학습에 쓰는 정답 열 · 채점용 정답은 따로 숨겨 둔다</span></div>
+          </div>
+          <p class="foot">채점용 정답은 학습에 쓰지 않는다. 알고리즘이 찾은 무리가 숨긴 정답과 얼마나 겹치는지 보려고만 쓴다.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cast" aria-label="등장인물">
+      <div class="say doc"><img data-who="doc" data-mood="don" alt="" aria-hidden="true"><div class="bub"><span class="who">대부 박사</span>비지도 가문의 명부를 엽니다. 묶는 다섯, 줄이는 넷. 같은 장부를 다섯에게 맡겨 보면 누가 어떤 무리를 보는지 드러납니다.</div></div>
+      <div class="say asst"><img data-who="asst" data-mood="dossier" alt="" aria-hidden="true"><div class="bub"><span class="who">참모 조수</span>장부에는 정답 열이 없어요. 채점용 정답은 따로 금고에 넣어 뒀어요.</div></div>
+      <div class="say fly"><img data-who="fly" data-mood="fedora" alt="" aria-hidden="true"><div class="bub"><span class="who">초파리 연구원 · 의심하는 간부</span>무리 수를 맞혔다고 끝이 아니야. 무리 모양부터 봐야지.</div></div>
+      <div class="say robo"><img data-who="robo" data-mood="tux" alt="" aria-hidden="true"><div class="bub"><span class="who">Money-Robo · 장부 든 회계</span>제일 유명한 K-Means면 충분하지. 빠르고 싸다.</div></div>
+    </div>
+    <aside class="prereq" aria-label="먼저 읽으면 좋은 편">
+      <b>먼저 읽으면 좋은 편</b>
+      <span><a href="4-3_unsupervised.html">4-3 비지도 가문</a> — 정답 없이 배우는 법, K-평균과 주성분 분석의 기본</span>
+      <span>같은 세로줄: 가계도 → <a href="4-3_unsupervised.html">4-3 비지도 가문</a> · <a href="4-13_unsupervised_metrics.html">회합 → 4-13 비지도 가문의 장부</a></span>
+    </aside>
+  </div>
+</header>
+
+<!-- ═══════════ 01 군집 5형제 ═══════════ -->
+<section class="part" id="m1">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no uns">01</div>
+    <div class="en">Five clusterers</div>
+    <h2>군집파 다섯 — 신상 파일</h2>
+    <p class="lin">무엇을 기준으로 "가깝다"고 보느냐가 다르다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">조직원 고르기</span>
+      <div id="m1List" role="group" aria-label="군집 알고리즘 고르기" style="display:grid;gap:8px"></div>
+    </div>
+    <div class="card dossier" id="m1File" aria-live="polite"></div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <span class="tag">같은 조직원, 세 가지 데이터</span>
+    <div class="three" id="m1Mini" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px"></div>
+    <p class="caption" id="m1Cap"></p>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 02 군집 실험 ═══════════ -->
+<section class="part" id="m2">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no uns">02</div>
+    <div class="en">Clustering lab</div>
+    <h2>군집 실험 — 데이터 모양 × 알고리즘</h2>
+    <p class="lin">데이터를 고정하고 알고리즘만 바꿔 끼운다</p>
+  </div>
+  <div class="card">
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+      <span class="muted" style="font-size:14px">데이터</span>
+      <div class="pills" id="labSet" role="group" aria-label="데이터 모양 고르기"><button data-v="blobs" aria-pressed="true">둥근 무리</button><button data-v="moons" aria-pressed="false">초승달</button><button data-v="varied" aria-pressed="false">크기가 다른 무리</button></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:8px">
+      <span class="muted" style="font-size:14px">조직원</span>
+      <div class="pills" id="labAlg" role="group" aria-label="알고리즘 고르기"><button data-v="km" aria-pressed="true">K-Means</button><button data-v="kmed" aria-pressed="false">K-Medoids</button><button data-v="db" aria-pressed="false">DBSCAN</button><button data-v="ag" aria-pressed="false">계층적 군집</button><button data-v="gmm" aria-pressed="false">GMM</button></div>
+    </div>
+    <div class="two" style="margin-top:12px">
+      <div>
+        <div class="cwrap"><canvas class="fig" id="labCv" aria-label="고른 데이터의 점들이 알고리즘이 찾은 무리별 색으로 칠해진 그림"></canvas></div>
+        <div class="stat" id="labStat" style="margin-top:10px"></div>
+      </div>
+      <div>
+        <div id="labCtl"></div>
+        <div class="cwrap" id="dendWrap" hidden><canvas class="fig" id="dendCv" aria-label="계층적 군집의 덴드로그램. 가로선 높이에서 잘라 무리 수를 정한다"></canvas></div>
+        <p class="caption" id="labCap" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <span class="tag">한눈에 · 정답 겹침 (숨긴 정답과 일대일로 짝지어 맞은 점의 몫)</span>
+    <div class="tw" id="labTable"><p class="muted">계산 중…</p></div>
+    <p class="caption">무리 수는 정답과 같게 주었다(DBSCAN은 무리 수를 받지 않는다). 잡음으로 빠진 점과 짝을 못 찾은 무리의 점은 틀린 것으로 센다.</p>
+  </div>
+
+  <div class="duel" id="d8"></div>
+  <h3 style="margin:26px 0 10px">✓ 확인 문제</h3>
+  <div class="quiz" data-quiz="q8a"></div>
+</div>
+</section>
+
+<!-- ═══════════ 03 차원 축소 4형제 ═══════════ -->
+<section class="part" id="m3">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no uns">03</div>
+    <div class="en">Four reducers</div>
+    <h2>차원축소파 넷 — 무엇을 지키며 줄이나</h2>
+    <p class="lin">축을 줄이면 무언가는 버려진다. 무엇을 남기느냐가 다르다</p>
+  </div>
+  <div class="cards8" id="m3Cards" style="grid-template-columns:repeat(2,minmax(0,1fr))"></div>
+  <p class="caption" style="margin-top:12px">선형은 축을 돌리고 고르는 것만 한다는 뜻이다. 비선형은 휘어진 면을 펴듯 공간을 구부려 줄인다.</p>
+</div>
+</section>
+
+<!-- ═══════════ 04 소용돌이 롤 ═══════════ -->
+<section class="part" id="m4">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no uns">04</div>
+    <div class="en">Unrolling the swiss roll</div>
+    <h2>소용돌이 롤 펼치기 — 3차원을 2차원으로</h2>
+    <p class="lin">돌돌 만 종이 위의 점 300개. 색은 종이 위 위치다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">3차원 원본 (천천히 돈다)</span>
+      <div class="cwrap"><canvas class="fig" id="rollCv" aria-label="돌돌 말린 종이 모양의 3차원 점구름. 안쪽 끝은 금색, 바깥쪽 끝은 파란색으로 색이 이어진다"></canvas></div>
+      <div class="ctrls"><button class="btn" id="rollSpin">❚❚ 멈춤</button></div>
+      <p class="caption">종이를 펴면 색이 금색에서 와인색을 거쳐 파란색으로 고르게 이어져야 한다. 2차원 지도에서 이 순서가 지켜지는지 본다.</p>
+    </div>
+    <div class="card">
+      <span class="tag">2차원 지도</span>
+      <div class="pills" id="redPick" role="group" aria-label="차원 축소 알고리즘 고르기"><button data-v="pca" aria-pressed="true">PCA</button><button data-v="tsne" aria-pressed="false">t-SNE</button><button data-v="umap" aria-pressed="false">UMAP</button><button data-v="ae" aria-pressed="false">오토인코더</button></div>
+      <div class="cwrap" style="margin-top:10px"><canvas class="fig" id="mapCv" aria-label="고른 알고리즘으로 줄인 2차원 지도. 점 색은 원래 종이 위 위치"></canvas></div>
+      <p class="caption" id="mapCap" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <span class="tag">3부 예고</span>
+    <p style="margin:0">t-SNE 그림의 무리 간격은 믿을 수 있을까? → <a href="4-13_unsupervised_metrics.html">4-13 비지도 가문의 장부</a></p>
+  </div>
+  <h3 style="margin:26px 0 10px">✓ 확인 문제</h3>
+  <div class="quiz" data-quiz="q8b"></div>
+  <p class="caption" id="preNote" style="margin-top:14px"></p>
+</div>
+</section>

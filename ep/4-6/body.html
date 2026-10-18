@@ -1,0 +1,206 @@
+<style>
+.door6{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:16px}
+.door6 a{display:block;text-decoration:none;border:2px solid var(--rule);background:var(--panel);border-radius:12px;padding:10px 12px;color:var(--text)}
+.door6 a:hover,.door6 a.cur{border-color:var(--amber)}
+.door6 b{display:block;font-size:15px}.door6 span{font-size:12.5px;color:var(--muted)}
+.door6 .crest{float:right;margin:0 0 0 6px}
+.file6{display:grid;grid-template-columns:210px minmax(0,1fr) 270px;gap:14px;align-items:start}
+.mlist{display:grid;gap:6px}
+.mlist button{display:flex;gap:8px;align-items:center;text-align:left;border:1px solid var(--rule);background:var(--panel2);border-radius:10px;padding:6px 10px;cursor:pointer;color:var(--text);font-size:14px}
+.mlist button canvas{flex:none;image-rendering:pixelated}
+.mlist button small{display:block;color:var(--muted);font-size:12px}
+.mlist button[aria-pressed="true"]{border:2px solid var(--amber);background:var(--panel)}
+.mpanel dl{margin:0;display:grid;gap:8px;font-size:14px}
+.mpanel dt{font-size:12px;color:var(--amber);font-weight:700;letter-spacing:.04em}
+.mpanel dd{margin:0}
+.mpanel .eq{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;background:var(--panel2);border-radius:8px;padding:6px 8px;display:block;overflow-x:auto}
+@media (max-width:900px){.file6{grid-template-columns:1fr}.mlist{grid-template-columns:repeat(2,minmax(0,1fr))}.door6{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="series" id="series" aria-label="알고리즘 패밀리 시리즈 목록"></div>
+    <div class="kicker">인공지능 알고리즘 패밀리 조직도 · 4-6<span class="fam fam-sup">2부 조직원 명부 · 회귀파</span></div>
+    <canvas class="stagecv" id="heroCv" width="1100" height="340" role="img" aria-label="서랍장 가득한 서재를 배경으로 조직원 패 서른네 개가 가문 색깔별로 다섯 줄에 차례로 놓인다. 맨 윗줄 회귀파 일곱이 반짝인다. 왼쪽에 초파리 연구원, 오른쪽에 Money-Robo가 서 있다"></canvas>
+    <div class="hero-grid">
+      <div>
+        <h1>회귀파 일곱 — 직선 하나에서 나무 숲까지</h1>
+        <p class="lede" style="margin-top:14px"><b>2부 조직원 명부</b>가 열린다. 1부에서는 가문과 파까지만 보았다. 이제 인포그래픽의 알고리즘 서른네 개를 한 명씩 불러 신상 파일을 연다. 방법은 하나다. <b>같은 데이터에 알고리즘만 바꿔 끼운다.</b> 그러면 결과의 차이가 데이터가 아니라 알고리즘에서 온다는 것이 눈에 보인다.</p>
+        <p class="lede">첫 파는 숫자를 맞히는 회귀파 일곱이다. 모두 아파트 면적으로 매매가를 맞힌다. 차이는 둘에 있다. <b>선을 얼마나 단순하게 두느냐</b>, 그리고 <b>곡선을 어떻게 그리느냐</b>.</p>
+        <div class="chips" aria-label="10분 핵심 경로"><span class="muted">10분 핵심 경로</span><a href="#file">신상 파일</a><span class="arr">→</span><a href="#m2">02 규제</a><span class="arr">→</span><a href="#d6">담판</a></div>
+      </div>
+      <div>
+        <div class="sizebox">
+          <h3>회귀파의 재료</h3>
+          <div class="sizegrid">
+            <div class="nn"><b>X</b><span>입력. 여기서는 아파트 면적(㎡)</span></div>
+            <div class="nn"><b>y</b><span>정답. 매매가(억 원), 숫자</span></div>
+            <div class="nn"><b>7</b><span>회귀파 조직원</span></div>
+            <div class="nn"><b>MAE</b><span>평균 절대 오차. 평균 몇 억 빗나갔나</span></div>
+          </div>
+          <p class="foot">모든 조직원이 같은 아파트 120채(훈련 80, 검증 40)로 겨룬다. 검증 MAE가 작을수록 처음 보는 집값을 잘 맞힌다.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cast" aria-label="등장인물">
+      <div class="say asst"><img data-who="asst" data-mood="dossier" alt="" aria-hidden="true"><div class="bub"><span class="who">참모 조수</span>서른네 명이에요… 신상 파일 다 만들었어요. 오늘은 회귀파 일곱 명부터 엽니다.</div></div>
+      <div class="say robo"><img data-who="robo" data-mood="tux" alt="" aria-hidden="true"><div class="bub"><span class="who">Money-Robo</span>가장 비싼 조직원부터 소개해 줘. 시간은 돈이야.</div></div>
+      <div class="say fly"><img data-who="fly" data-mood="fedora" alt="" aria-hidden="true"><div class="bub"><span class="who">초파리 연구원</span>가장 단순한 것부터 봐야 차이가 보이지. 직선부터.</div></div>
+      <div class="say doc"><img data-who="doc" data-mood="files" alt="" aria-hidden="true"><div class="bub"><span class="who">대부 박사</span>모두 숫자를 맞힙니다. 다른 건 선을 얼마나 단순하게 두느냐, 곡선을 어떻게 그리느냐. 그것뿐이에요.</div></div>
+    </div>
+    <nav class="door6" id="door6" aria-label="2부 조직원 명부 다섯 편">
+      <a class="cur" href="#top" data-c="sup"><b>4-6 회귀파 일곱</b><span>숫자를 맞히는 일곱</span></a>
+      <a href="4-7_classification_eight.html" data-c="sup"><b>4-7 분류파 여덟</b><span>경계를 긋는 여덟</span></a>
+      <a href="4-8_unsupervised_nine.html" data-c="uns"><b>4-8 비지도 아홉</b><span>묶는 다섯, 줄이는 넷</span></a>
+      <a href="4-9_rl_three.html" data-c="rl"><b>4-9 강화 삼대</b><span>표에서 신경망으로</span></a>
+      <a href="4-10_ensemble_lineage.html" data-c="ens"><b>4-10 앙상블 계보</b><span>평균과 오답 노트</span></a>
+    </nav>
+    <aside class="prereq" aria-label="먼저 읽으면 좋은 편">
+      <b>먼저 읽으면 좋은 편</b>
+      <span><a href="4-2_supervised.html#m2">4-2 지도 가문 · 02 회귀·분류</a> — 회귀가 무엇이고 오차를 어떻게 재는지</span>
+      <span>같은 세로줄: 가계도 → <a href="4-2_supervised.html">4-2 지도 가문</a> · <a href="4-12_supervised_metrics.html">회합 → 4-12 지도 가문의 장부</a></span>
+    </aside>
+  </div>
+</header>
+
+<!-- ═══════════ 신상 파일 ═══════════ -->
+<section class="part" id="file">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no sup">00</div>
+    <div class="en">Member files</div>
+    <h2>신상 파일 — 회귀파 일곱을 같은 집값에 세운다</h2>
+    <p class="lin">조직원을 고르면 같은 데이터 위에 그 조직원의 예측선이 그려진다</p>
+  </div>
+  <div class="card dossier">
+    <div class="file6">
+      <div class="mlist" id="mlist" role="group" aria-label="회귀파 조직원 고르기"></div>
+      <div>
+        <div class="cwrap"><canvas class="fig" id="fileCv" aria-label="아파트 면적과 매매가 점 120개 위에 고른 조직원의 예측선이 그려진 그림. 채운 점은 훈련, 빈 점은 검증, 점선은 데이터를 만든 진짜 규칙"></canvas></div>
+        <div class="stat" id="fileStat" style="margin-top:10px"></div>
+        <div id="scareHost"></div>
+      </div>
+      <div class="mpanel" id="mpanel" aria-live="polite"></div>
+    </div>
+  </div>
+  <p class="muted" style="font-size:14px;margin-top:10px">규제 3형제(Ridge·Lasso·Elastic Net)는 특징이 많을 때 힘을 쓴다. 그래서 신상 파일에서는 면적 하나를 1제곱부터 8제곱까지 여덟 특징으로 늘려 준 뒤 규제를 건다. 규제가 없으면 8제곱 곡선이 출렁이고, 규제가 그 출렁임을 눌러 준다.</p>
+</div>
+</section>
+
+<!-- ═══════════ 01 선형 회귀 ═══════════ -->
+<section class="part" id="m1">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no sup">01</div>
+    <div class="en">Linear regression</div>
+    <h2>선형 회귀 — 회귀파의 맏형</h2>
+    <p class="lin">y = w·x + b. 오차의 제곱합이 가장 작은 직선 하나</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">이야기</span>
+      <p>선형 회귀는 점 구름을 가장 잘 지나는 직선 하나를 찾는다. "가장 잘"은 점과 직선 사이 세로 거리(잔차)를 제곱해 모두 더한 값이 가장 작다는 뜻이다. 이 직선은 한 번의 계산(정규방정식)으로 바로 나온다.</p>
+      <p>강점은 읽기 쉽다는 것이다. "면적 1㎡가 늘면 매매가가 w억 원 오른다"처럼 기울기 하나로 설명된다. 약점도 분명하다. 데이터가 휘어 있으면 직선은 따라가지 못한다.</p>
+      <p style="margin:0">오른쪽에서 데이터를 바꿔 보자. 휜 데이터에서는 잔차(주황 막대)가 <b>가운데는 아래로, 양 끝은 위로</b> 몰린다. 잔차에 무늬가 보이면 직선이 놓친 모양이 있다는 신호다.</p>
+    </div>
+    <div class="card">
+      <span class="tag">직선과 잔차</span>
+      <div class="pills" role="group" aria-label="데이터 고르기"><button data-v="1" aria-pressed="true">휜 데이터</button><button data-v="0" aria-pressed="false">거의 직선</button></div>
+      <div class="cwrap" style="margin-top:10px"><canvas class="fig" id="linCv" aria-label="면적과 매매가 점 위에 선형 회귀 직선과, 점마다 직선까지의 잔차 막대가 그려진 그림"></canvas></div>
+      <div class="caption" id="linInfo" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 02 규제 3형제 ═══════════ -->
+<section class="part" id="m2">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no sup">02</div>
+    <div class="en">Ridge · Lasso · Elastic Net</div>
+    <h2>규제 3형제 — 가중치에 벌점을 매긴다</h2>
+    <p class="lin">오차 + λ × (가중치 크기). λ가 클수록 단순해진다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">이야기</span>
+      <p>특징이 많으면 선형 회귀는 쓸모없는 특징에도 가중치를 준다. 우연히 훈련 데이터와 맞아떨어진 잡음까지 배우는 셈이다. 규제는 오차에 <b>가중치 크기만큼 벌점</b>을 더해, 꼭 필요한 가중치만 크게 남게 한다.</p>
+      <ul style="margin:0 0 10px;padding-left:20px">
+        <li><b>Ridge (L2)</b>: 벌점 = 가중치 제곱의 합. 모두를 골고루 작게 만든다. 0이 되지는 않는다.</li>
+        <li><b>Lasso (L1)</b>: 벌점 = 가중치 절댓값의 합. 쓸모없는 가중치를 <b>정확히 0</b>으로 만든다. 특징 고르기가 저절로 된다.</li>
+        <li><b>Elastic Net</b>: 둘을 섞는다. 서로 비슷한 특징(면적과 방 수)이 있을 때 Lasso보다 덜 들쭉날쭉하다.</li>
+      </ul>
+      <p style="margin:0">데이터는 아파트 48채의 특징 10개다. 진짜로 값에 영향을 주는 것은 면적·층·역까지 거리·건물 나이 넷이고, 방 수는 면적과 겹치며, 잡음 ①~⑤는 아무 뜻 없는 난수다. λ를 올리며 어떤 막대가 먼저 0이 되는지 보자.</p>
+    </div>
+    <div class="card">
+      <span class="tag">가중치 막대 (특징을 표준화한 뒤의 크기)</span>
+      <div class="pills" role="group" aria-label="규제 종류"><button data-v="ridge" aria-pressed="false">Ridge</button><button data-v="lasso" aria-pressed="true">Lasso</button><button data-v="enet" aria-pressed="false">Elastic Net</button></div>
+      <label for="lamSl" style="display:block;font-size:14px;color:var(--muted);margin-top:10px">규제 세기 λ: <b id="lamVal" class="num" style="color:var(--text)">0.2</b></label>
+      <input type="range" id="lamSl" min="0" max="11" step="1" value="5">
+      <div class="bars" id="wBars" style="margin-top:10px"></div>
+      <div class="stat" id="wStat" style="margin-top:10px"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 03 SVR ═══════════ -->
+<section class="part" id="m3">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no sup">03</div>
+    <div class="en">Support vector regression</div>
+    <h2>SVR — ε 폭 안의 오차는 봐준다</h2>
+    <p class="lin">띠 안의 점은 벌점 0, 띠 밖으로 나간 만큼만 벌점</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">이야기</span>
+      <p>SVR(서포트 벡터 회귀)은 예측선 둘레에 폭 ε의 띠를 두른다. 띠 안에 들어온 점의 오차는 문제 삼지 않고, 띠 밖으로 나간 거리만 벌점으로 센다. 그래서 작은 잡음에 흔들리지 않는다.</p>
+      <p>여기에 <b>커널</b>을 쓰면 직선이 아닌 곡선도 그린다. 이 페이지는 RBF 커널을 "무작위 푸리에 특징" 80개로 <b>근사</b>해 계산한다. 정식 SVR 풀이와 숫자는 조금 다르지만 띠가 하는 일은 같다.</p>
+      <p style="margin:0">ε을 넓히면 봐주는 점이 늘어 선이 느긋해지고, 너무 넓히면 데이터의 모양을 놓친다. 좁히면 모든 점을 신경 쓰는 보통 회귀에 가까워진다.</p>
+    </div>
+    <div class="card">
+      <span class="tag">ε 띠 (RBF 커널 근사)</span>
+      <div class="cwrap"><canvas class="fig" id="svrCv" aria-label="면적과 매매가 점 위에 SVR 예측 곡선과 그 위아래 폭 ε의 띠. 띠 안의 점은 흐리게, 띠 밖의 점은 진하게 그려진다"></canvas></div>
+      <label for="epsSl" style="display:block;font-size:14px;color:var(--muted);margin-top:8px">띠 폭 ε: <b id="epsVal" class="num" style="color:var(--text)">0.5</b>억 원</label>
+      <input type="range" id="epsSl" min="0" max="8" step="1" value="2">
+      <div class="stat" id="svrStat" style="margin-top:10px"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════ 04 트리·GBM 회귀 ═══════════ -->
+<section class="part" id="m4">
+<div class="wrap">
+  <div class="part-head">
+    <div class="part-no sup">04</div>
+    <div class="en">Tree · GBM regression</div>
+    <h2>트리 회귀와 GBM 회귀 — 직선을 버리고 계단으로</h2>
+    <p class="lin">계단 하나는 거칠고, 계단을 여러 번 덧대면 매끈해진다</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <span class="tag">결정 트리 회귀 · 깊이 바꾸기</span>
+      <p style="margin-top:0">"면적이 63㎡ 이하인가?" 같은 질문으로 집을 나누고, 칸마다 평균값을 답한다. 그래서 예측선이 계단 모양이다. 깊이를 키우면 계단이 잘아지고, 끝까지 키우면 훈련 집값을 하나하나 외운다(4-2의 과적합).</p>
+      <div class="cwrap"><canvas class="fig" id="trCv" aria-label="면적과 매매가 점 위에 결정 트리 회귀의 계단 모양 예측선"></canvas></div>
+      <label for="trSl" style="display:block;font-size:14px;color:var(--muted);margin-top:8px">트리 깊이: <b id="trVal" class="num" style="color:var(--text)">3</b></label>
+      <input type="range" id="trSl" min="1" max="12" step="1" value="3">
+      <div class="cwrap" style="margin-top:8px"><canvas class="fig" id="trCurve" aria-label="깊이 1부터 12까지 훈련 MAE와 검증 MAE 두 곡선"></canvas></div>
+      <div class="legend"><span><i style="background:var(--gfp)"></i>훈련 MAE</span><span><i style="background:var(--amber)"></i>검증 MAE</span></div>
+    </div>
+    <div class="card runner">
+      <span class="tag">GBM 회귀 · 계단 덧대기 재생</span>
+      <p style="margin-top:0">GBM(그레이디언트 부스팅)은 얕은 트리를 하나 세운 뒤, <b>아직 틀린 만큼(잔차)</b>을 다음 트리가 배우게 한다. 한 그루가 고치는 양은 학습률(0.1)만큼으로 조금씩이다. 100그루를 덧대면 거친 계단이 곡선에 다가간다.</p>
+      <div class="cwrap"><canvas class="fig" id="gbCv" aria-label="GBM 회귀에서 트리를 한 그루씩 더할 때마다 누적 예측선이 진짜 곡선에 다가가는 그림. 아래에는 남은 잔차 막대"></canvas></div>
+      <div class="ctrls"><button class="btn go" id="gbPlay">▶ 덧대기</button><button class="btn" id="gbStep">한 그루</button><button class="btn" id="gbReset">처음으로</button></div>
+      <div class="stat" id="gbStat" style="margin-top:10px"></div>
+    </div>
+  </div>
+
+  <div class="duel" id="d6"></div>
+  <h3 style="margin:26px 0 10px">✓ 확인 문제</h3>
+  <div class="quiz" data-quiz="q6"></div>
+</div>
+</section>
