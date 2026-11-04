@@ -66,7 +66,7 @@ for name, ((X, y), k, eps) in SETS.items():
 # 4) 담판: 초승달에서 K-Means(k=2) vs DBSCAN
 (X, y), k, eps = SETS["초승달"]
 km, db = KMeans(2, n_init=10, random_state=3).fit_predict(X), DBSCAN(eps=eps, min_samples=5).fit_predict(X)
-print(f"\n담판 · Money-Robo K-Means 겹침 {match(km, y, 2):.3f}")
+print(f"\n담판 · 주판봇 K-Means 겹침 {match(km, y, 2):.3f}")
 print(f"담판 · 초파리 DBSCAN 겹침 {match(db, y, 2):.3f} (무리 {len(set(db) - {-1})}개, 잡음 {np.sum(db == -1)}개)")
 small = DBSCAN(eps=.12, min_samples=5).fit_predict(X)
 print(f"ε=0.12로 줄이면: 무리 {len(set(small) - {-1})}개, 잡음 {np.sum(small == -1)}개, 겹침 {match(small, y, 2):.3f}")

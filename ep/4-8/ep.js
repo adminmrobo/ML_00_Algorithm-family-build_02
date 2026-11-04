@@ -106,10 +106,10 @@ Duel('d8',{title:'초승달 두 개, 누가 제대로 묶을까',q:'초승달 �
  fly:['DBSCAN (ε 0.27, 최소 이웃 5)','무리 모양이 둥글지 않은데? 빽빽하게 이어진 것끼리 묶어야지.'],robo:['K-Means, k = 2','무리가 두 개인 것까지 맞혔으니 끝. 빠르고 싸다.'],roboMood:'coin',
  run:async function(p){p(.3);await wait(150);var a=UNS9.run('moons','db'),b=UNS9.run('moons','km');p(1);
   return {winner:a.score>b.score?'f':(a.score<b.score?'r':'d'),big:false,
-   measure:'금고를 열어 정답과 맞춰 봤어요. 초파리 쪽 DBSCAN은 무리 '+a.k+'개를 찾았고 정답 겹침 '+pct(a.score)+'(잡음 '+a.noise+'개). Money-Robo 쪽 K-Means는 겹침 '+pct(b.score)+'예요. K-Means는 초승달 두 개를 가운데에서 가로로 잘랐어요.',
+   measure:'금고를 열어 정답과 맞춰 봤어요. 초파리 쪽 DBSCAN은 무리 '+a.k+'개를 찾았고 정답 겹침 '+pct(a.score)+'(잡음 '+a.noise+'개). 주판봇 쪽 K-Means는 겹침 '+pct(b.score)+'예요. K-Means는 초승달 두 개를 가운데에서 가로로 잘랐어요.',
    verdict:'K-Means는 무리가 둥글다고 가정한다. 가정이 틀리면 무리 수를 맞혀도 진다. 이 구역은 초파리 쪽이다.',key:'알고리즘을 고르기 전에 무리 모양을 먼저 본다.',
-   render:function(box){box.innerHTML=statGrid([[pct(a.score),'초파리 · DBSCAN 정답 겹침','f'],[a.k+'개 / '+a.noise+'개','DBSCAN 무리 / 잡음','f'],[pct(b.score),'Money-Robo · K-Means 정답 겹침','r'],['2개 (지정)','K-Means 무리','r']])+
-    '<div class="two" style="margin-top:12px"><figure style="margin:0"><canvas class="fig" id="dA" aria-label="DBSCAN이 두 초승달을 각각 하나의 무리로 찾은 그림"></canvas><figcaption class="muted" style="font-size:13px">초파리 · DBSCAN</figcaption></figure><figure style="margin:0"><canvas class="fig" id="dB" aria-label="K-Means가 두 초승달을 가운데에서 가로로 자른 그림"></canvas><figcaption class="muted" style="font-size:13px">Money-Robo · K-Means</figcaption></figure></div>';
+   render:function(box){box.innerHTML=statGrid([[pct(a.score),'초파리 · DBSCAN 정답 겹침','f'],[a.k+'개 / '+a.noise+'개','DBSCAN 무리 / 잡음','f'],[pct(b.score),'주판봇 · K-Means 정답 겹침','r'],['2개 (지정)','K-Means 무리','r']])+
+    '<div class="two" style="margin-top:12px"><figure style="margin:0"><canvas class="fig" id="dA" aria-label="DBSCAN이 두 초승달을 각각 하나의 무리로 찾은 그림"></canvas><figcaption class="muted" style="font-size:13px">초파리 · DBSCAN</figcaption></figure><figure style="margin:0"><canvas class="fig" id="dB" aria-label="K-Means가 두 초승달을 가운데에서 가로로 자른 그림"></canvas><figcaption class="muted" style="font-size:13px">주판봇 · K-Means</figcaption></figure></div>';
     function dr(){plotSet($('dA'),'moons',a.a,200);plotSet($('dB'),'moons',b.a,200,{post:function(ctx,F){b.C.forEach(function(c,j){circ(ctx,F.X(c[0]),F.Y(c[1]),7,kcol(j),cols().text,2);});}});}setTimeout(dr,0);onRedraw(dr);}};},
  alts:[{label:'무리가 둥글다면?',run:async function(box){var a=UNS9.run('blobs','db'),b=UNS9.run('blobs','km');
    box.innerHTML=statGrid([[pct(a.score),'DBSCAN · 둥근 무리','f'],[pct(b.score),'K-Means · 둥근 무리','r']])+'<div class="cwrap" style="margin-top:10px"><canvas class="fig" id="altC" aria-label="둥근 무리 세 개를 K-Means가 묶은 그림"></canvas></div>'+

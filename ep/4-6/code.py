@@ -45,7 +45,7 @@ for curved in (True, False):
         print(f"{name:12s} 훈련 MAE {mae(y_tr, m.predict(X_tr)):5.2f}  검증 MAE {mae(y_va, m.predict(X_va)):5.2f}")
 
 # ---------------------------------------------------------------
-# 3) 담판: 선형 회귀(초파리) vs GBM 회귀(Money-Robo), 그리고 훈련 범위 밖
+# 3) 담판: 선형 회귀(초파리) vs GBM 회귀(주판봇), 그리고 훈련 범위 밖
 X_tr, X_va, y_tr, y_va = make(True)
 lin = LinearRegression().fit(X_tr, y_tr)
 gbm = GradientBoostingRegressor(n_estimators=100, learning_rate=0.1, max_depth=2, random_state=0).fit(X_tr, y_tr)

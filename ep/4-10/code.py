@@ -47,7 +47,7 @@ for noise in noises:
     print(f"{int(noise*100):3d}%  " + "  ".join(f"{np.mean(acc[n]):10.3f}" for n in names))
 
 # ---------------------------------------------------------------
-# 4) 담판: 잡음 2%에서 랜덤 포레스트(초파리) vs GBM(Money-Robo)
+# 4) 담판: 잡음 2%에서 랜덤 포레스트(초파리) vs GBM(주판봇)
 rf, gb = [], []
 for seed in (1, 2, 3):
     X_tr, X_va, y_tr, y_va = make(seed, 0.02)

@@ -109,13 +109,13 @@ function bandRegion(cv,model,H){var Wd=fit(cv,H),ctx=cv.getContext('2d'),C=cols(
  $('growSl').addEventListener('input',function(){n=+this.value;$('growVal').textContent=n;draw();});draw();onRedraw(draw);})();
 
 /* ══ 담판: 표 데이터에서 배깅 vs 부스팅 ══ */
-function duelRender(box,o,note){box.innerHTML=statGrid([[pct(o.rf),'초파리 · 랜덤 포레스트 25그루 · 검증','f'],[pct(o.gb),'Money-Robo · GBM 60단계 · 검증','r'],[pct(o.one),'참고 · 트리 1그루 · 검증']])+
+function duelRender(box,o,note){box.innerHTML=statGrid([[pct(o.rf),'초파리 · 랜덤 포레스트 25그루 · 검증','f'],[pct(o.gb),'주판봇 · GBM 60단계 · 검증','r'],[pct(o.one),'참고 · 트리 1그루 · 검증']])+
   '<div class="tw" style="margin-top:10px"><table class="tb"><thead><tr><th>데이터 벌</th><th>트리 1그루</th><th>랜덤 포레스트</th><th>GBM</th></tr></thead><tbody>'+o.rows.map(function(r){return '<tr><td>'+r[0]+'번</td><td>'+pct(r[1])+'</td><td>'+(r[2]>r[3]?'<b>'+pct(r[2])+'</b>':pct(r[2]))+'</td><td>'+(r[3]>r[2]?'<b>'+pct(r[3])+'</b>':pct(r[3]))+'</td></tr>';}).join('')+'</tbody></table></div>'+(note||'');}
 Duel('d10',{title:'표 데이터, 배깅이냐 부스팅이냐',q:'대출 600건의 상환 여부를 맞힌다. 특징은 소득·부채 같은 숫자 8개이고, 잘못 적힌 정답은 2%뿐이다. 400건으로 배우고 200건으로 잰다. 데이터를 세 벌 만들어 평균한다. 누가 더 잘 맞힐까?',
  fly:['랜덤 포레스트 25그루','그냥 둬도 잘 버텨. 다양한 의견의 평균이지.'],robo:['GBM 60단계','오답 노트를 60번 고치면 더 맞힌다. 표 데이터는 부스팅이야.'],roboMood:'stack',
  run:async function(p){var o=await LIN.duel(0.02,[1,2,3],p);var w=o.gb>o.rf?'r':(o.gb<o.rf?'f':'d');
-  return {winner:w,measure:'세 벌 평균 검증 정확도는 Money-Robo 쪽 GBM이 '+pct(o.gb)+', 초파리 쪽 랜덤 포레스트가 '+pct(o.rf)+'예요. 차이는 '+fx((o.gb-o.rf)*100,1)+'%p로 크지 않아요. 트리 1그루는 '+pct(o.one)+'라 둘 다 한 그루보다는 확실히 나아요.',
-   verdict:'잡음이 적은 표 데이터에서는 오답을 차례로 고치는 쪽이 조금 더 맞힌다. 다만 차이는 작다. 이 구역은 Money-Robo 쪽이다.',key:'표 데이터에서 부스팅이 자주 이기지만, 잡음 앞에서는 장담 못 한다.',
+  return {winner:w,measure:'세 벌 평균 검증 정확도는 주판봇 쪽 GBM이 '+pct(o.gb)+', 초파리 쪽 랜덤 포레스트가 '+pct(o.rf)+'예요. 차이는 '+fx((o.gb-o.rf)*100,1)+'%p로 크지 않아요. 트리 1그루는 '+pct(o.one)+'라 둘 다 한 그루보다는 확실히 나아요.',
+   verdict:'잡음이 적은 표 데이터에서는 오답을 차례로 고치는 쪽이 조금 더 맞힌다. 다만 차이는 작다. 이 구역은 주판봇 쪽이다.',key:'표 데이터에서 부스팅이 자주 이기지만, 잡음 앞에서는 장담 못 한다.',
    render:function(box){duelRender(box,o);}};},
  alts:[{label:'잡음 많게 (정답 10% 뒤집기)',run:async function(box){var o=await LIN.duel(0.10,[1,2,3]);
    duelRender(box,o,say('fly','arms','봐, 잡음이 늘면 '+(o.rf>=o.gb?'포레스트가 앞서잖아. '+pct(o.rf)+' 대 '+pct(o.gb)+'.':'차이가 '+fx((o.gb-o.rf)*100,1)+'%p로 줄었지.')+' 오답을 끝까지 고치다 잘못 적힌 정답까지 고친 거야.')+say('robo','sigh','잡음 많은 장부에선 학습률을 낮추고 단계 수를 검증으로 골라야겠군.'));}},

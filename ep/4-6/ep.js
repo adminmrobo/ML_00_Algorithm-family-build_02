@@ -104,22 +104,22 @@ function duelFigure(id,S,d,curved,x1){var F=aptFrame($(id),230,{x1:x1||120,y1:x1
   aptCurve(F,d.lin.f,F.C.c_fly||F.C.eye,2.8,20,x1||120);aptCurve(F,d.gbm.f,F.C.c_robo||F.C.info,2.8,20,x1||120);
   if(x1){F.ctx.fillStyle=rgba(F.C.amber,.08);F.ctx.fillRect(F.px(120),F.tp,F.px(x1)-F.px(120),F.bt-F.tp);F.ctx.font=font(11);F.ctx.fillStyle=F.C.amber;F.ctx.textAlign='left';F.ctx.fillText('훈련 범위 밖',F.px(121),F.tp+14);}
   stamp(F.ctx,F.W,'예시 데이터');}
-function duelLegend(){return '<div class="legend"><span><i style="background:var(--c-fly)"></i>초파리 · 선형 회귀</span><span><i style="background:var(--c-robo)"></i>Money-Robo · GBM 회귀</span><span><i style="background:var(--muted)"></i>점선 = 진짜 규칙</span></div>';}
+function duelLegend(){return '<div class="legend"><span><i style="background:var(--c-fly)"></i>초파리 · 선형 회귀</span><span><i style="background:var(--c-robo)"></i>주판봇 · GBM 회귀</span><span><i style="background:var(--muted)"></i>점선 = 진짜 규칙</span></div>';}
 Duel('d6',{title:'휜 집값을 무엇으로 맞힐까',q:'아파트 120채(훈련 80, 검증 40). 넓은 집일수록 값이 가파르게 오르는 휜 데이터다. 처음 보는 40채의 매매가를 누가 덜 빗나갈까? 검증 MAE(평균 몇 억 빗나갔나)로 잰다.',
  fly:['선형 회귀','단순한 게 설명하기 좋아. 기울기 하나면 끝이야.'],robo:['GBM 회귀 (트리 100그루)','매매가는 곡선이야. 비싼 걸로 간다.'],roboMood:'chart',
  run:async function(p){p(.3);await wait(120);var d=REG.duel(APT);p(1);
   return {winner:d.gbm.va<d.lin.va?'r':(d.gbm.va>d.lin.va?'f':'d'),big:d.lin.va>1.5*d.gbm.va,
-   measure:'처음 보는 40채에서 초파리 쪽 선형 회귀는 평균 '+eok(d.lin.va)+', Money-Robo 쪽 GBM 회귀는 평균 '+eok(d.gbm.va)+' 빗나갔어요. 훈련 80채에서는 '+eok(d.lin.tr)+' 대 '+eok(d.gbm.tr)+'예요. 기준이(늘 평균만)는 '+eok(BASE.va)+'였어요.',
-   verdict:'데이터가 휘었으면 직선은 진다. 직선은 작은 집과 큰 집을 싸게, 중간 집을 비싸게 불렀다. 이 구역은 Money-Robo 쪽이다.',key:'모델의 모양이 데이터의 모양을 따라가야 한다.',
-   render:function(box){box.innerHTML=statGrid([[eok(d.lin.tr),'초파리 · 훈련 MAE','f'],[eok(d.lin.va),'초파리 · 검증 MAE','f'],[eok(d.gbm.tr),'Money-Robo · 훈련 MAE','r'],[eok(d.gbm.va),'Money-Robo · 검증 MAE','r']])+
+   measure:'처음 보는 40채에서 초파리 쪽 선형 회귀는 평균 '+eok(d.lin.va)+', 주판봇 쪽 GBM 회귀는 평균 '+eok(d.gbm.va)+' 빗나갔어요. 훈련 80채에서는 '+eok(d.lin.tr)+' 대 '+eok(d.gbm.tr)+'예요. 기준이(늘 평균만)는 '+eok(BASE.va)+'였어요.',
+   verdict:'데이터가 휘었으면 직선은 진다. 직선은 작은 집과 큰 집을 싸게, 중간 집을 비싸게 불렀다. 이 구역은 주판봇 쪽이다.',key:'모델의 모양이 데이터의 모양을 따라가야 한다.',
+   render:function(box){box.innerHTML=statGrid([[eok(d.lin.tr),'초파리 · 훈련 MAE','f'],[eok(d.lin.va),'초파리 · 검증 MAE','f'],[eok(d.gbm.tr),'주판봇 · 훈련 MAE','r'],[eok(d.gbm.va),'주판봇 · 검증 MAE','r']])+
     '<div class="cwrap" style="margin-top:12px"><canvas class="fig" id="dA" aria-label="휜 데이터 위에 선형 회귀 직선과 GBM 회귀의 계단 곡선"></canvas></div>'+duelLegend();
     function dr(){duelFigure('dA',APT,d,1);}setTimeout(dr,0);onRedraw(dr);}};},
  alts:[{label:'데이터가 거의 직선이라면?',run:async function(box){var d=REG.duel(APT0);
-   box.innerHTML=statGrid([[eok(d.lin.va),'초파리 · 선형 · 검증 MAE','f'],[eok(d.gbm.va),'Money-Robo · GBM · 검증 MAE','r']])+'<div class="cwrap" style="margin-top:10px"><canvas class="fig" id="dB" aria-label="거의 직선인 데이터 위의 두 예측선"></canvas></div>'+duelLegend()+
+   box.innerHTML=statGrid([[eok(d.lin.va),'초파리 · 선형 · 검증 MAE','f'],[eok(d.gbm.va),'주판봇 · GBM · 검증 MAE','r']])+'<div class="cwrap" style="margin-top:10px"><canvas class="fig" id="dB" aria-label="거의 직선인 데이터 위의 두 예측선"></canvas></div>'+duelLegend()+
     say('fly','arms','봐, 거의 직선이면 내 직선이 '+eok(d.lin.va)+', GBM은 '+eok(d.gbm.va)+'. 계단을 100번 덧댈 필요가 없지. 게다가 내 건 "1㎡에 '+fx(d.lin.w,3)+'억"이라고 한 줄로 설명돼.')+say('robo','sigh','…같은 숫자면 싼 쪽이 이득이긴 하지.');
    function dr(){duelFigure('dB',APT0,d,0);}setTimeout(dr,0);}},
   {label:'훈련 범위 밖(125~150㎡)을 물으면?',run:async function(box){var d=REG.duel(APT),el=0,eg=0,n=0;for(var a=125;a<=150;a+=5){var t=REG.truth(1,a);el+=Math.abs(d.lin.f(a)-t);eg+=Math.abs(d.gbm.f(a)-t);n++;}
-   box.innerHTML=statGrid([[eok(el/n),'초파리 · 선형 · 평균 오차','f'],[eok(eg/n),'Money-Robo · GBM · 평균 오차','r'],[eok(d.gbm.f(150)),'GBM이 부른 150㎡ 값'],[eok(REG.truth(1,150)),'진짜 규칙의 150㎡ 값']])+
+   box.innerHTML=statGrid([[eok(el/n),'초파리 · 선형 · 평균 오차','f'],[eok(eg/n),'주판봇 · GBM · 평균 오차','r'],[eok(d.gbm.f(150)),'GBM이 부른 150㎡ 값'],[eok(REG.truth(1,150)),'진짜 규칙의 150㎡ 값']])+
     '<div class="cwrap" style="margin-top:10px"><canvas class="fig" id="dC" aria-label="훈련 범위 밖까지 넓힌 그림. GBM 예측은 120㎡ 뒤로 평평하고, 직선은 계속 오르지만 진짜 곡선보다 덜 오른다"></canvas></div>'+duelLegend()+
     say('asst','ledger','둘 다 틀리지만 GBM이 더 틀려요. 트리는 칸마다 훈련 집값의 평균을 답하니까, 가장 큰 훈련 집보다 비싼 값을 부를 수 없어요. 그래서 120㎡ 뒤로는 평평해요.')+say('fly','point','배운 범위 밖에서는 아무도 믿지 마. 그게 진짜 교훈이야.');
    function dr(){duelFigure('dC',APT,d,1,150);}setTimeout(dr,0);}}]});

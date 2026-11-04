@@ -82,9 +82,9 @@ Duel('d7',{title:'동심원을 누가 가를까',q:'안쪽 원(주황)과 바깥
  fly:['로지스틱 회귀','확률로 답하니 믿을 만해.'],robo:['랜덤 포레스트','나무 스물다섯 그루면 어떤 모양도 받아 낸다.'],roboMood:'stack',
  run:async function(p){p(.3);await wait(120);var a=CLS.fit('log','circ'),b=CLS.fit('rf','circ');p(1);var w=a.va>b.va?'f':(a.va<b.va?'r':'d');
   return {winner:w,big:Math.abs(a.va-b.va)>=.1,measure:'처음 보는 100개에서 로지스틱 회귀 '+pct(a.va)+', 랜덤 포레스트 '+pct(b.va)+'예요. 로지스틱은 훈련 데이터에서도 '+pct(a.tr)+'라서, 파랑·주황이 반반인 데이터에서 동전 던지기와 크게 다르지 않아요.',
-   verdict:'직선 하나로는 동그라미를 가를 수 없다. 모델이 그릴 수 있는 경계 모양이 데이터 모양과 맞아야 한다. 이 구역은 Money-Robo 쪽이다.',key:'경계 모양이 데이터 모양을 담을 수 있어야 한다.',
-   render:function(box){box.innerHTML=statGrid([[pct(a.tr),'초파리 · 훈련','f'],[pct(a.va),'초파리 · 검증','f'],[pct(b.tr),'Money-Robo · 훈련','r'],[pct(b.va),'Money-Robo · 검증','r']])+
-    '<div class="two" style="margin-top:12px"><figure style="margin:0"><canvas class="fig" id="dA" aria-label="로지스틱 회귀의 직선 경계"></canvas><figcaption class="muted" style="font-size:13px">초파리 · 로지스틱 회귀</figcaption></figure><figure style="margin:0"><canvas class="fig" id="dB" aria-label="랜덤 포레스트의 계단 모양 원 경계"></canvas><figcaption class="muted" style="font-size:13px">Money-Robo · 랜덤 포레스트</figcaption></figure></div>';
+   verdict:'직선 하나로는 동그라미를 가를 수 없다. 모델이 그릴 수 있는 경계 모양이 데이터 모양과 맞아야 한다. 이 구역은 주판봇 쪽이다.',key:'경계 모양이 데이터 모양을 담을 수 있어야 한다.',
+   render:function(box){box.innerHTML=statGrid([[pct(a.tr),'초파리 · 훈련','f'],[pct(a.va),'초파리 · 검증','f'],[pct(b.tr),'주판봇 · 훈련','r'],[pct(b.va),'주판봇 · 검증','r']])+
+    '<div class="two" style="margin-top:12px"><figure style="margin:0"><canvas class="fig" id="dA" aria-label="로지스틱 회귀의 직선 경계"></canvas><figcaption class="muted" style="font-size:13px">초파리 · 로지스틱 회귀</figcaption></figure><figure style="margin:0"><canvas class="fig" id="dB" aria-label="랜덤 포레스트의 계단 모양 원 경계"></canvas><figcaption class="muted" style="font-size:13px">주판봇 · 랜덤 포레스트</figcaption></figure></div>';
     function dr(){boundary($('dA'),a,'circ',220,{});boundary($('dB'),b,'circ',220,{});}setTimeout(dr,0);onRedraw(dr);}};},
  alts:[{label:'직선으로 나뉘는 데이터라면?',run:async function(box){var a=CLS.fit('log','lin'),b=CLS.fit('rf','lin');
    box.innerHTML=statGrid([[pct(a.va),'로지스틱 · 검증','f'],[pct(b.va),'랜덤 포레스트 · 검증','r'],[CLS.size('log',a)+'개','로지스틱이 기억하는 숫자'],[CLS.size('rf',b).toLocaleString()+'개','숲의 질문·잎 수']])+

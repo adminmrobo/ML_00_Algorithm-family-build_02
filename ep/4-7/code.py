@@ -58,10 +58,10 @@ for mname, make in MODELS.items():
     print(f"{mname:20s}" + "".join(f"{v:10.3f}" for v in row))
 
 # ---------------------------------------------------------------
-# 4) 담판: 동심원에서 로지스틱 회귀(초파리) vs 랜덤 포레스트(Money-Robo)
+# 4) 담판: 동심원에서 로지스틱 회귀(초파리) vs 랜덤 포레스트(주판봇)
 X, y = SHAPES["동심원"]
 X_tr, X_va, y_tr, y_va = train_test_split(X, y, test_size=100, random_state=5)
-for who, make in (("초파리 · 로지스틱", MODELS["로지스틱 회귀"]), ("Money-Robo · 숲", MODELS["랜덤 포레스트"])):
+for who, make in (("초파리 · 로지스틱", MODELS["로지스틱 회귀"]), ("주판봇 · 숲", MODELS["랜덤 포레스트"])):
     t0 = time.perf_counter()
     m = make().fit(X_tr, y_tr)
     print(f"담판 {who:16s} 검증 {m.score(X_va, y_va):.3f}  학습 {1000*(time.perf_counter()-t0):.1f} ms")

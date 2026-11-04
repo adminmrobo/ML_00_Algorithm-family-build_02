@@ -63,7 +63,7 @@ def learn(env, kind, episodes, seed, eps=0.2, gamma=0.9):
 # 3) 담판: ① 5×5 지그재그 미로 60판 ② 20×20 빈 격자 40판 (시드 3개 평균)
 SNAKE = [6, 7, 8, 9, 15, 16, 17, 18]
 for name, env, eps_n in (("① 5×5 지그재그 미로", make_env(5, SNAKE), 60), ("② 20×20 빈 격자", make_env(20), 40)):
-    for kind, who in (("table", "초파리 · Q 표"), ("approx", "Money-Robo · 근사 Q")):
+    for kind, who in (("table", "초파리 · Q 표"), ("approx", "주판봇 · 근사 Q")):
         t0 = time.time()
         res = [learn(env, kind, eps_n, sd) for sd in (1, 2, 3)]
         rate = np.mean([r for r, _ in res])

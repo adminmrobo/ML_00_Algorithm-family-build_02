@@ -2,7 +2,7 @@
  "n": "4-10",
  "file": "4-10_ensemble_lineage.html",
  "title": "앙상블 계보",
- "desc": "배깅파(랜덤 포레스트·Extra Trees)와 부스팅파(GBM·XGBoost·LightGBM·CatBoost)의 계보와 신상 파일. 데이터를 다시 뽑으며 보는 배깅의 흔들림, 단계별로 재생하는 부스팅의 잔차. 초파리 연구원과 Money-Robo가 표 데이터에서 랜덤 포레스트와 GBM으로 겨룬다. 인공지능 알고리즘 패밀리 조직도 4-10.",
+ "desc": "배깅파(랜덤 포레스트·Extra Trees)와 부스팅파(GBM·XGBoost·LightGBM·CatBoost)의 계보와 신상 파일. 데이터를 다시 뽑으며 보는 배깅의 흔들림, 단계별로 재생하는 부스팅의 잔차. 초파리 연구원과 주판봇이 표 데이터에서 랜덤 포레스트와 GBM으로 겨룬다. 인공지능 알고리즘 패밀리 조직도 4-10.",
  "toc": [
   [
    "top",
