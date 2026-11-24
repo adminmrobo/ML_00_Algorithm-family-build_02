@@ -1,0 +1,158 @@
+{
+ "version": "1.0",
+ "page": "4-6_regression_seven",
+ "nodes": [
+  {
+   "id": "lab:concept/regression",
+   "type": "Concept",
+   "label": {
+    "ko": "회귀",
+    "en": "Regression"
+   },
+   "page": "4-6_regression_seven",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "숫자를 맞히는 문제."
+   }
+  },
+  {
+   "id": "lab:concept/regularization",
+   "type": "Concept",
+   "label": {
+    "ko": "규제",
+    "en": "regularization"
+   },
+   "page": "4-6_regression_seven",
+   "anchor": "#m2",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "ai",
+    "dl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "계수에 벌점을 줘 0 쪽으로 당기기."
+   }
+  },
+  {
+   "id": "lab:concept/classification",
+   "type": "Concept",
+   "label": {
+    "ko": "분류",
+    "en": "Classification"
+   },
+   "page": "4-6_regression_seven",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "범주를 맞히는 문제."
+   }
+  },
+  {
+   "id": "lab:concept/prompt",
+   "type": "Concept",
+   "label": {
+    "ko": "프롬프트",
+    "en": "prompt"
+   },
+   "page": "4-6_regression_seven",
+   "anchor": "#prompt",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai",
+    "llm"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "AI에게 무엇을 만들지 알려 주는 글."
+   }
+  },
+  {
+   "id": "lab:topic/weight-decay",
+   "type": "Topic",
+   "label": {
+    "ko": "가중치 감쇠(L2)",
+    "en": "Weight decay (L2)"
+   },
+   "page": "4-6_regression_seven",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/prompting",
+   "type": "Topic",
+   "label": {
+    "ko": "프롬프팅",
+    "en": "Prompting"
+   },
+   "page": "4-6_regression_seven",
+   "anchor": "#kg",
+   "level": 4,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  }
+ ],
+ "edges": [
+  {
+   "s": "lab:concept/regularization",
+   "p": "lab:broader",
+   "o": "lab:topic/weight-decay",
+   "anchor": "#m2",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/prompt",
+   "p": "lab:broader",
+   "o": "lab:topic/prompting",
+   "anchor": "#prompt",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/regression",
+   "p": "lab:contrastsWith",
+   "o": "lab:concept/classification",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  }
+ ]
+}

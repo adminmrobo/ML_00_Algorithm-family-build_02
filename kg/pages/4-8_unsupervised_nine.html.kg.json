@@ -1,0 +1,293 @@
+{
+ "version": "1.0",
+ "page": "4-8_unsupervised_nine",
+ "nodes": [
+  {
+   "id": "lab:concept/dimensionality-reduction",
+   "type": "Concept",
+   "label": {
+    "ko": "차원 축소 (접기)",
+    "en": "Dimensionality reduction"
+   },
+   "page": "4-8_unsupervised_nine",
+   "anchor": "#m3",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ai",
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "변수 수를 줄여 요약하는 일"
+   }
+  },
+  {
+   "id": "lab:method/pca",
+   "type": "Term",
+   "label": {
+    "ko": "PCA",
+    "en": "principal component analysis"
+   },
+   "page": "4-8_unsupervised_nine",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "biz",
+    "math"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "주성분 분석. 분산이 가장 큰 방향의 축으로 투영하는 선형 차원 축소."
+   }
+  },
+  {
+   "id": "lab:concept/prompt",
+   "type": "Concept",
+   "label": {
+    "ko": "프롬프트",
+    "en": "prompt"
+   },
+   "page": "4-8_unsupervised_nine",
+   "anchor": "#prompt",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai",
+    "llm"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "AI에게 무엇을 만들지 알려 주는 글."
+   }
+  },
+  {
+   "id": "lab:method/tsne",
+   "type": "Concept",
+   "label": {
+    "ko": "t-SNE",
+    "en": "t-SNE"
+   },
+   "page": "4-8_unsupervised_nine",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ai",
+    "ml",
+    "llm"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "가까운 점의 이웃 구조를 지키며 2·3차원으로 줄이는 비선형 차원 축소."
+   }
+  },
+  {
+   "id": "lab:method/autoencoder",
+   "type": "Method",
+   "label": {
+    "ko": "오토인코더",
+    "en": "autoencoder"
+   },
+   "page": "4-8_unsupervised_nine",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "biz",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "그림을 숫자 몇 개로 접었다 펴서, 넣은 그림 자신을 맞히도록 배우는 신경망."
+   }
+  },
+  {
+   "id": "lab:concept/tsne-umap",
+   "type": "Concept",
+   "label": {
+    "ko": "t-SNE·UMAP",
+    "en": "t-SNE and UMAP"
+   },
+   "page": "4-8_unsupervised_nine",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "mentioned",
+   "domain": [
+    "ml",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24"
+  },
+  {
+   "id": "lab:topic/pca",
+   "type": "Topic",
+   "label": {
+    "ko": "주성분 분석",
+    "en": "Principal component analysis"
+   },
+   "page": "4-8_unsupervised_nine",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/prompting",
+   "type": "Topic",
+   "label": {
+    "ko": "프롬프팅",
+    "en": "Prompting"
+   },
+   "page": "4-8_unsupervised_nine",
+   "anchor": "#kg",
+   "level": 4,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/tsne-umap",
+   "type": "Topic",
+   "label": {
+    "ko": "t-SNE·UMAP",
+    "en": "t-SNE and UMAP"
+   },
+   "page": "4-8_unsupervised_nine",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/autoencoder",
+   "type": "Topic",
+   "label": {
+    "ko": "오토인코더",
+    "en": "Autoencoder"
+   },
+   "page": "4-8_unsupervised_nine",
+   "anchor": "#kg",
+   "level": 4,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  }
+ ],
+ "edges": [
+  {
+   "s": "lab:concept/dimensionality-reduction",
+   "p": "lab:broader",
+   "o": "lab:topic/pca",
+   "anchor": "#m3",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:method/pca",
+   "p": "lab:broader",
+   "o": "lab:topic/pca",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/prompt",
+   "p": "lab:broader",
+   "o": "lab:topic/prompting",
+   "anchor": "#prompt",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:method/tsne",
+   "p": "lab:broader",
+   "o": "lab:topic/tsne-umap",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:method/autoencoder",
+   "p": "lab:broader",
+   "o": "lab:topic/autoencoder",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/tsne-umap",
+   "p": "lab:broader",
+   "o": "lab:topic/tsne-umap",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:method/pca",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:method/tsne",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:method/pca",
+   "p": "lab:relatedTo",
+   "o": "lab:method/autoencoder",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:method/autoencoder",
+   "p": "lab:contrastsWith",
+   "o": "lab:method/pca",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:method/pca",
+   "p": "lab:partOf",
+   "o": "lab:concept/dimensionality-reduction",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  }
+ ]
+}

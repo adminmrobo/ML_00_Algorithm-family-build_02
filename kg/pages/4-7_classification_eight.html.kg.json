@@ -1,0 +1,517 @@
+{
+ "version": "1.0",
+ "page": "4-7_classification_eight",
+ "nodes": [
+  {
+   "id": "lab:concept/classification",
+   "type": "Concept",
+   "label": {
+    "ko": "분류",
+    "en": "Classification"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "범주를 맞히는 문제."
+   }
+  },
+  {
+   "id": "lab:method/svm",
+   "type": "Method",
+   "label": {
+    "ko": "SVM",
+    "en": "support vector machine"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#m1",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "biz",
+    "fin"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "두 클래스 사이 여백(마진)이 가장 넓은 경계를 찾는 분류 알고리즘."
+   }
+  },
+  {
+   "id": "lab:method/knn",
+   "type": "Method",
+   "label": {
+    "ko": "KNN",
+    "en": "k-nearest neighbors"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#m2",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "biz",
+    "fin"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "새 데이터와 가장 가까운 K개 이웃의 다수결(또는 평균)로 예측하는 알고리즘."
+   }
+  },
+  {
+   "id": "lab:concept/naive-bayes",
+   "type": "Concept",
+   "label": {
+    "ko": "나이브 베이즈",
+    "en": "Naive Bayes"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#m2",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24"
+  },
+  {
+   "id": "lab:method/logistic-regression",
+   "type": "Method",
+   "label": {
+    "ko": "로지스틱 회귀 (다항)",
+    "en": "Multinomial logistic regression"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#m1",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "biz",
+    "fin"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "정답별 점수 → 소프트맥스 → 확률"
+   }
+  },
+  {
+   "id": "lab:concept/xgboost",
+   "type": "Method",
+   "label": {
+    "ko": "XGBoost",
+    "en": "XGBoost"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#m3",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ai",
+    "ml",
+    "rl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "천하제일 지능대회"
+   }
+  },
+  {
+   "id": "lab:concept/decision-tree",
+   "type": "Concept",
+   "label": {
+    "ko": "결정 트리",
+    "en": "Decision tree"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#m3",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24"
+  },
+  {
+   "id": "lab:concept/random-forest",
+   "type": "Method",
+   "label": {
+    "ko": "랜덤 포레스트",
+    "en": "Random forest"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#m3",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "ai",
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "나무 수백 그루의 다수결"
+   }
+  },
+  {
+   "id": "lab:concept/regression",
+   "type": "Concept",
+   "label": {
+    "ko": "회귀",
+    "en": "Regression"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#m1",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "숫자를 맞히는 문제."
+   }
+  },
+  {
+   "id": "lab:concept/prompt",
+   "type": "Concept",
+   "label": {
+    "ko": "프롬프트",
+    "en": "prompt"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#prompt",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai",
+    "llm"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "AI에게 무엇을 만들지 알려 주는 글."
+   }
+  },
+  {
+   "id": "lab:concept/attitude",
+   "type": "Concept",
+   "label": {
+    "ko": "자세",
+    "en": "Attitude (orientation)"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "geom",
+    "math"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "물체가 어느 쪽을 보고 얼마나 기울었는지."
+   }
+  },
+  {
+   "id": "lab:topic/svm",
+   "type": "Topic",
+   "label": {
+    "ko": "서포트 벡터 머신",
+    "en": "Support vector machine"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/knn",
+   "type": "Topic",
+   "label": {
+    "ko": "k-최근접 이웃",
+    "en": "k-nearest neighbors"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/naive-bayes",
+   "type": "Topic",
+   "label": {
+    "ko": "나이브 베이즈",
+    "en": "Naive Bayes"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/glm-logistic",
+   "type": "Topic",
+   "label": {
+    "ko": "로지스틱 회귀(GLM)",
+    "en": "Logistic regression (GLM)"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "stats"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/boosting",
+   "type": "Topic",
+   "label": {
+    "ko": "부스팅",
+    "en": "Boosting"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/decision-tree",
+   "type": "Topic",
+   "label": {
+    "ko": "결정 트리",
+    "en": "Decision tree"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/random-forest",
+   "type": "Topic",
+   "label": {
+    "ko": "랜덤 포레스트",
+    "en": "Random forest"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/prompting",
+   "type": "Topic",
+   "label": {
+    "ko": "프롬프팅",
+    "en": "Prompting"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#kg",
+   "level": 4,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/calculus-optimization-math",
+   "type": "Topic",
+   "label": {
+    "ko": "미적분과 최적화 수학",
+    "en": "Calculus for optimization"
+   },
+   "page": "4-7_classification_eight",
+   "anchor": "#kg",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  }
+ ],
+ "edges": [
+  {
+   "s": "lab:method/svm",
+   "p": "lab:broader",
+   "o": "lab:topic/svm",
+   "anchor": "#m1",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:method/knn",
+   "p": "lab:broader",
+   "o": "lab:topic/knn",
+   "anchor": "#m2",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/naive-bayes",
+   "p": "lab:broader",
+   "o": "lab:topic/naive-bayes",
+   "anchor": "#m2",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:method/logistic-regression",
+   "p": "lab:broader",
+   "o": "lab:topic/glm-logistic",
+   "anchor": "#m1",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/xgboost",
+   "p": "lab:broader",
+   "o": "lab:topic/boosting",
+   "anchor": "#m3",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/decision-tree",
+   "p": "lab:broader",
+   "o": "lab:topic/decision-tree",
+   "anchor": "#m3",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/random-forest",
+   "p": "lab:broader",
+   "o": "lab:topic/random-forest",
+   "anchor": "#m3",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/prompt",
+   "p": "lab:broader",
+   "o": "lab:topic/prompting",
+   "anchor": "#prompt",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/attitude",
+   "p": "lab:broader",
+   "o": "lab:topic/calculus-optimization-math",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/regression",
+   "p": "lab:contrastsWith",
+   "o": "lab:concept/classification",
+   "anchor": "#m1",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:method/knn",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:method/svm",
+   "anchor": "#m2",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:method/knn",
+   "p": "lab:contrastsWith",
+   "o": "lab:method/logistic-regression",
+   "anchor": "#m2",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:method/logistic-regression",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:method/knn",
+   "anchor": "#m1",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  }
+ ]
+}

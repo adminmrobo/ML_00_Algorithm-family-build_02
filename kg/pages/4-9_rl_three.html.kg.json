@@ -1,0 +1,362 @@
+{
+ "version": "1.0",
+ "page": "4-9_rl_three",
+ "nodes": [
+  {
+   "id": "lab:method/dqn",
+   "type": "Method",
+   "label": {
+    "ko": "DQN",
+    "en": "Deep Q-Network"
+   },
+   "page": "4-9_rl_three",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai",
+    "rl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24"
+  },
+  {
+   "id": "lab:term/ppo",
+   "type": "Term",
+   "label": {
+    "ko": "PPO",
+    "en": "Proximal policy optimization"
+   },
+   "page": "4-9_rl_three",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai",
+    "rl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24"
+  },
+  {
+   "id": "lab:method/q-learning",
+   "type": "Method",
+   "label": {
+    "ko": "Q-러닝",
+    "en": "Q-learning"
+   },
+   "page": "4-9_rl_three",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai",
+    "rl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "상태-행동 가치 Q를 보상으로 고쳐 가는 강화학습 방법."
+   }
+  },
+  {
+   "id": "lab:concept/reward",
+   "type": "Concept",
+   "label": {
+    "ko": "보상",
+    "en": "Reward"
+   },
+   "page": "4-9_rl_three",
+   "anchor": "#series",
+   "level": 3,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24"
+  },
+  {
+   "id": "lab:concept/hidden-state",
+   "type": "Concept",
+   "label": {
+    "ko": "상태",
+    "en": "Hidden state"
+   },
+   "page": "4-9_rl_three",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "stats",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "지금까지 읽은 것을 요약한 64칸짜리 숫자 묶음 h. 걸음마다 새로 계산되어 덮어써진다."
+   }
+  },
+  {
+   "id": "lab:concept/prompt",
+   "type": "Concept",
+   "label": {
+    "ko": "프롬프트",
+    "en": "prompt"
+   },
+   "page": "4-9_rl_three",
+   "anchor": "#prompt",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai",
+    "llm"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "AI에게 무엇을 만들지 알려 주는 글."
+   }
+  },
+  {
+   "id": "lab:concept/learning-rate",
+   "type": "Term",
+   "label": {
+    "ko": "학습률",
+    "en": "Learning rate"
+   },
+   "page": "4-9_rl_three",
+   "anchor": "#files",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "math",
+    "ai",
+    "dl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "새 나무의 예측을 반영하는 배수."
+   }
+  },
+  {
+   "id": "lab:concept/discount-factor",
+   "type": "Concept",
+   "label": {
+    "ko": "할인율 γ",
+    "en": "Discount factor"
+   },
+   "page": "4-9_rl_three",
+   "anchor": "#files",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "mentioned",
+   "domain": [
+    "ml",
+    "econ",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "늦게 받는 보상을 깎는 0 이상 1 미만의 수."
+   }
+  },
+  {
+   "id": "lab:topic/q-learning",
+   "type": "Topic",
+   "label": {
+    "ko": "Q-러닝",
+    "en": "Q-learning"
+   },
+   "page": "4-9_rl_three",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/policy-gradient",
+   "type": "Topic",
+   "label": {
+    "ko": "정책 경사",
+    "en": "Policy gradient"
+   },
+   "page": "4-9_rl_three",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/reward",
+   "type": "Topic",
+   "label": {
+    "ko": "보상",
+    "en": "Reward"
+   },
+   "page": "4-9_rl_three",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/rnn",
+   "type": "Topic",
+   "label": {
+    "ko": "순환 신경망",
+    "en": "Recurrent neural network"
+   },
+   "page": "4-9_rl_three",
+   "anchor": "#kg",
+   "level": 3,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/prompting",
+   "type": "Topic",
+   "label": {
+    "ko": "프롬프팅",
+    "en": "Prompting"
+   },
+   "page": "4-9_rl_three",
+   "anchor": "#kg",
+   "level": 4,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/gradient-descent",
+   "type": "Topic",
+   "label": {
+    "ko": "경사하강법",
+    "en": "Gradient descent"
+   },
+   "page": "4-9_rl_three",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  }
+ ],
+ "edges": [
+  {
+   "s": "lab:method/dqn",
+   "p": "lab:broader",
+   "o": "lab:topic/q-learning",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:term/ppo",
+   "p": "lab:broader",
+   "o": "lab:topic/policy-gradient",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:method/q-learning",
+   "p": "lab:broader",
+   "o": "lab:topic/q-learning",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/reward",
+   "p": "lab:broader",
+   "o": "lab:topic/reward",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/hidden-state",
+   "p": "lab:broader",
+   "o": "lab:topic/rnn",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/prompt",
+   "p": "lab:broader",
+   "o": "lab:topic/prompting",
+   "anchor": "#prompt",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/learning-rate",
+   "p": "lab:broader",
+   "o": "lab:topic/gradient-descent",
+   "anchor": "#files",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/discount-factor",
+   "p": "lab:broader",
+   "o": "lab:topic/reward",
+   "anchor": "#files",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:method/q-learning",
+   "p": "lab:prerequisiteOf",
+   "o": "lab:method/dqn",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  }
+ ]
+}

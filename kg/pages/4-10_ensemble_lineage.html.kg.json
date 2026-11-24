@@ -1,0 +1,407 @@
+{
+ "version": "1.0",
+ "page": "4-10_ensemble_lineage",
+ "nodes": [
+  {
+   "id": "lab:topic/boosting",
+   "type": "Topic",
+   "label": {
+    "ko": "부스팅",
+    "en": "Boosting"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:concept/bagging",
+   "type": "Concept",
+   "label": {
+    "ko": "배깅",
+    "en": "Bagging"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#m2",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24"
+  },
+  {
+   "id": "lab:concept/xgboost",
+   "type": "Method",
+   "label": {
+    "ko": "XGBoost",
+    "en": "XGBoost"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#m4",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ai",
+    "ml",
+    "rl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "천하제일 지능대회"
+   }
+  },
+  {
+   "id": "lab:concept/prompt",
+   "type": "Concept",
+   "label": {
+    "ko": "프롬프트",
+    "en": "prompt"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#prompt",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml",
+    "ai",
+    "llm"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "AI에게 무엇을 만들지 알려 주는 글."
+   }
+  },
+  {
+   "id": "lab:concept/variance",
+   "type": "Concept",
+   "label": {
+    "ko": "분산",
+    "en": "variance"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "math",
+    "econ"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "값이 평균에서 흩어진 정도. 주성분이 담은 분산의 몫으로 정보량을 가늠한다."
+   }
+  },
+  {
+   "id": "lab:concept/bias",
+   "type": "Concept",
+   "label": {
+    "ko": "편향",
+    "en": "Bias"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "ai",
+    "dl"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "가중합에 더하는 값. 얼마나 쉽게 반응할지를 정한다."
+   }
+  },
+  {
+   "id": "lab:concept/random-forest",
+   "type": "Method",
+   "label": {
+    "ko": "랜덤 포레스트",
+    "en": "Random forest"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "stats",
+    "ai",
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "나무 수백 그루의 다수결"
+   }
+  },
+  {
+   "id": "lab:concept/regression",
+   "type": "Concept",
+   "label": {
+    "ko": "회귀",
+    "en": "Regression"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "숫자를 맞히는 문제."
+   }
+  },
+  {
+   "id": "lab:concept/reconstruction",
+   "type": "Concept",
+   "label": {
+    "ko": "복원",
+    "en": "reconstruction"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#m2",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "explained",
+   "domain": [
+    "ai",
+    "ml",
+    "genai"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "지도 위 숫자로 원래 그림을 다시 그리는 것."
+   }
+  },
+  {
+   "id": "lab:concept/classification",
+   "type": "Concept",
+   "label": {
+    "ko": "분류",
+    "en": "Classification"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#series",
+   "level": 2,
+   "status": "known",
+   "confidence": "medium",
+   "coverage": "mentioned",
+   "domain": [
+    "ml"
+   ],
+   "match": [],
+   "auto": "autokg-2026-11-24",
+   "definition": {
+    "ko": "범주를 맞히는 문제."
+   }
+  },
+  {
+   "id": "lab:topic/bagging",
+   "type": "Topic",
+   "label": {
+    "ko": "배깅",
+    "en": "Bagging"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/prompting",
+   "type": "Topic",
+   "label": {
+    "ko": "프롬프팅",
+    "en": "Prompting"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#kg",
+   "level": 4,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/dispersion",
+   "type": "Topic",
+   "label": {
+    "ko": "퍼짐",
+    "en": "Measures of dispersion"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#kg",
+   "level": 1,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "stats"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/unbiasedness",
+   "type": "Topic",
+   "label": {
+    "ko": "불편성",
+    "en": "Unbiasedness"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "stats"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/random-forest",
+   "type": "Topic",
+   "label": {
+    "ko": "랜덤 포레스트",
+    "en": "Random forest"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  },
+  {
+   "id": "lab:topic/pca",
+   "type": "Topic",
+   "label": {
+    "ko": "주성분 분석",
+    "en": "Principal component analysis"
+   },
+   "page": "4-10_ensemble_lineage",
+   "anchor": "#kg",
+   "level": 2,
+   "status": "known",
+   "confidence": "high",
+   "coverage": "mentioned",
+   "domain": [
+    "ai"
+   ],
+   "match": []
+  }
+ ],
+ "edges": [
+  {
+   "s": "lab:concept/bagging",
+   "p": "lab:broader",
+   "o": "lab:topic/bagging",
+   "anchor": "#m2",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/xgboost",
+   "p": "lab:broader",
+   "o": "lab:topic/boosting",
+   "anchor": "#m4",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/prompt",
+   "p": "lab:broader",
+   "o": "lab:topic/prompting",
+   "anchor": "#prompt",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/variance",
+   "p": "lab:broader",
+   "o": "lab:topic/dispersion",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/bias",
+   "p": "lab:broader",
+   "o": "lab:topic/unbiasedness",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/random-forest",
+   "p": "lab:broader",
+   "o": "lab:topic/random-forest",
+   "anchor": "#series",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/reconstruction",
+   "p": "lab:broader",
+   "o": "lab:topic/pca",
+   "anchor": "#m2",
+   "confidence": "medium"
+  },
+  {
+   "s": "lab:concept/regression",
+   "p": "lab:contrastsWith",
+   "o": "lab:concept/classification",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  },
+  {
+   "s": "lab:concept/bias",
+   "p": "lab:contrastsWith",
+   "o": "lab:concept/variance",
+   "anchor": "#series",
+   "confidence": "medium",
+   "note": "다른 해설 페이지에서 확인된 관계"
+  }
+ ]
+}
